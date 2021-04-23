@@ -58,7 +58,6 @@ class EmployeeController extends Controller
         $count = Employee::get();
         $count = $count->count();
         $count++;
-
         $sum=$request['email'].$count."@factory";
         $em=new Employee();
         $em->name=$request['email'];
@@ -73,12 +72,12 @@ class EmployeeController extends Controller
     
     
     
-    public function logout(Reuquest $request)
+    public function logout(Request $request)
     {
         Auth::guard('Employee')->logout();
-          $request->session()->invalidate();
+       $request->session()->invalidate();
 
-        $request->session()->regenerateToken();
+    $request->session()->regenerateToken();
 
         return redirect('/home/login');
     }
