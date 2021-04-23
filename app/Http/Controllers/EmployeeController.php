@@ -24,12 +24,11 @@ class EmployeeController extends Controller
     
     public function check(Request $request )
     {
-/*
-              $data=$request->validate([
-            'email' => 'required|email|unique|max:191',
-            'password' =>'required|string',
-            ]);  
-            */
+
+          $request->validate([
+            'email' => 'required|max:255',
+        'password' => 'required',
+            ]);
         
         $emp = $request->only('email' , 'password');
             
