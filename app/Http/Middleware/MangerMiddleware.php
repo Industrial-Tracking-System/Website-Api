@@ -16,11 +16,10 @@ class MangerMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->is_manager == 0 || !Auth::guard('Employee')->check()) {
-            return redirect('home');
-        }
-
         
+        if(Auth::guard('Employee')->user()->is_manager==0 || !Auth::guard('Employee')->check()) {
+            return redirect('home');
+        }        
         return $next($request);
     }
 }
