@@ -32,6 +32,7 @@
 
 
 
+
 <body>
     <form method="post" action="{{url('home/login')}}">
         @csrf
@@ -41,9 +42,18 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
+                        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                </ul>
+                        </div>
+                            @endif
                             <h3 class="text-center text-info">Login</h3>
                             <div class="form-group">
-                                <label for="username" class="text-info">Email:</label><br>
+                                <label for="username" class="text-info">Name:</label><br>
                                 <input type="text" name="email" id="username" class="form-control">
                             </div>
                             <div class="form-group">
