@@ -41,11 +41,11 @@
                                     @if (Auth::guard('Employee')->check()) 
                                     <ul id="navigation">
                                         <li><a class="active" href="index.html">Home</a></li>
-                                                                                 <li><a href="{{url('/logout')}}">Logout</a></li>
+                                         <li><a href="{{url('/logout')}}">Logout</a></li>
 
                                    @if(Auth::guard('Employee')->user()->is_manager==1)
 
-                                        <li><a href="store.html">Stores</a></li>
+                                        <li><a href="{{url('home/inventories')}}">Inventories</a></li>
                                         <li><a href="order.html">Orders</a></li>
                                         <li><a href="flow.html">Work-flow</a></li>
 
