@@ -38,10 +38,11 @@
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     
-                                  @if(Auth::guard('Employee')->user()->is_manager==1)
                                     @if (Auth::guard('Employee')->check()) 
                                     <ul id="navigation">
                                         <li><a class="active" href="index.html">Home</a></li>
+                                                                                 <li><a href="{{url('/logout')}}">Logout</a></li>
+
                                    @if(Auth::guard('Employee')->user()->is_manager==1)
 
                                         <li><a href="store.html">Stores</a></li>
@@ -53,22 +54,11 @@
 
                                          <li><a href="{{url('/logout')}}">Logout</a></li>
                                     </ul>
-                                    @endif
-                                        @else 
-                                     <ul id="navigation">
-
-                                        <li><a class="active" href="index.html">Home</a></li>
-                                        <li><a href="{{url('home/login')}}">Login</a></li>
-                                    </ul>
+                                     
                                      @endif
 
                                     
-                                       
-                                    @else
-                                        <ul id="navigation">
-                                        <li><a class="active" href="index.html">Home</a></li>
-                                        <li><a href="{{url('/home/login')}}">login</a></li>
-                                    </ul>
+                                   
                                     @endif
                                 </nav>
                             </div>
