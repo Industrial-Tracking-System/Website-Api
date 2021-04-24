@@ -1,9 +1,7 @@
 <?php
-use App\Http\Controllers\ApiEmployee;
-  
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\FactoryController;
+use App\Http\Controllers\EmployeeController;
 
-use Illuminate\Support\Facades\Route;
-
-Route::get('/home',[ApiEmployee::class,'index']);
+Route::get('/home',[EmployeeController::class,'index']);
+Route::post('/login',[EmployeeController::class,'loginapi']);
