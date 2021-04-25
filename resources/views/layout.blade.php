@@ -44,9 +44,7 @@
                                     <li><a href="{{url('/home/login')}}">Login</a></li>
                                    
                                     @endif
-                                    @if (Auth::guard('Employee')->check()) 
-                                         <li><a href="{{url('/logout')}}">Logout</a></li>
-
+                                    
                                    @if(Auth::guard('Employee')->user()->is_manager==1)
 
                                         <li><a href="{{url('home/inventories')}}">Inventories</a></li>
@@ -56,12 +54,13 @@
                                         <li><a href="{{url('/home/add-employee')}}">Add-Employee</a></li>
 
 
-                                         <li><a href="{{url('/logout')}}">Logout</a></li>
-                                    </ul>
                                      @endif
+                                        @if (Auth::guard('Employee')->check()) 
+                                         <li><a href="{{url('/logout')}}">Logout</a></li>
 
                                     
-                                   
+                                       </ul>
+
                                     @endif
                                 </nav>
                             </div>
