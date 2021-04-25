@@ -37,10 +37,14 @@
                         <div class="col-xl-7 col-lg-7">
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
-                                    
-                                    @if (Auth::guard('Employee')->check()) 
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">Home</a></li>
+
+                                    <li><a class="active" href="index.html">Home</a></li>
+                                       @if (!Auth::guard('Employee')->check())                                      
+                                    <li><a href="{{url('/home/login')}}">Login</a></li>
+                                   
+                                    @endif
+                                    @if (Auth::guard('Employee')->check()) 
                                          <li><a href="{{url('/logout')}}">Logout</a></li>
 
                                    @if(Auth::guard('Employee')->user()->is_manager==1)
@@ -54,7 +58,6 @@
 
                                          <li><a href="{{url('/logout')}}">Logout</a></li>
                                     </ul>
-                                     
                                      @endif
 
                                     
