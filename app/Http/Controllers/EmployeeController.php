@@ -8,28 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 class EmployeeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function loginapi(Request $request)
-    {
-        $emp = $request->only('email' , 'password');
-            
-
-      if (Auth::guard('Employee')->attempt($emp)){
-        
-         $id=Auth::guard('Employee')->user()->id;
-          $success=Employee::find($id);
-
-            return response()->json($success);          
-      }
-        else {
-            return "wrong data";
-        }
-        
-    }
+  
+    
      public function login()
     {
         return view('Employee.login');
