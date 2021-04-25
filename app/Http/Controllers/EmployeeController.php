@@ -19,10 +19,9 @@ class EmployeeController extends Controller
             
 
       if (Auth::guard('Employee')->attempt($emp)){
-            $success['email'] =  $request['email'];
-
-            $success['password'] =  $request['password'];
-
+        
+         $id=Auth::guard('Employee')->user()->id;
+          $success=Employee::find($id);
 
             return response()->json($success);          
       }
