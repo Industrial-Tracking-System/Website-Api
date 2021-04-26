@@ -8,7 +8,7 @@ Route::post('/login',[EmployeeApi::class,'login']);
 Route::get('/employees',[EmployeeApi::class,'show_employees']);
 Route::get('/employees/{id?}',[EmployeeApi::class,'show_employee']);
 
-Route::get('/inventories',[InventoryApi::class,'show_inventories']);
+Route::get('/inventories',[inventoryApi::class,'show_inventories']);
 Route::get('/inventories/{id?}',[inventoryApi::class,'show_inventory']);
 
 Route::get('/cars',[carApi::class,'show_cars']);
