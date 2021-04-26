@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Inventory;
+use App\Models\Employee;
 use Illuminate\Http\Request;
+
+
 
 class InventoryController extends Controller
 {
@@ -12,11 +15,12 @@ class InventoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+ public function show_inventories(){
+         
+        $success=Inventory::get();
+     return response()->json($success);
+        
     }
-
     /**
      * Show the form for creating a new resource.
      *

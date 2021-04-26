@@ -25,4 +25,16 @@ class EmployeeApi extends Controller
         }
         
     }
+     public function show_employees(){
+         
+        $employees=Employee::get();
+     return response()->json($employees);
+        
+    }
+     public function show_employee($id){
+         $employees=Employee::find($id);
+     return response()->json($employees);
+        
+    }
+        
 }
