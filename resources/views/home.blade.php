@@ -4,6 +4,5 @@
 Home page
  @endsection
 @section('content')
-   
-    
+
  @endsection
