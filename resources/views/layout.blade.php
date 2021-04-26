@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Medilab Free Bootstrap HTML5 Template</title>
+  <title> @yield('tittle')</title>
   <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
@@ -28,7 +28,7 @@
 				        <span class="icon-bar"></span>
 				        <span class="icon-bar"></span>
 				      </button>
-              <a class="navbar-brand" href="#"><img src="img/logo.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
+              <a class="navbar-brand" href="#"><img src="img/logo1.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
             </div>
             <div class="collapse navbar-collapse navbar-right" id="myNavbar">
               <ul class="nav navbar-nav">
@@ -58,16 +58,21 @@
             </div>
           </div>
         </div>
+     
       </nav>
       
       
     </div>
   </section>
-  <!--/ banner-->
-  <!--service-->
-  
-  <!--/ contact-->
-  <!--footer-->
+ <div class="container">
+          <div class="col-md-2">
+            <div class="navbar-header">
+        @yield('content')
+    
+    </div>
+     </div>
+        </div>
+        
   <footer id="footer">
     <div class="top-footer">
       <div class="container">
