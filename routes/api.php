@@ -16,3 +16,4 @@ Route::get('/cars',[carApi::class,'show_cars']);
 Route::get('/cars/{id?}',[carApi::class,'show_car']);
 
 Route::post('/register',[CustomerApi::class,'register']);
+Route::post('/customerlogin',[CustomerApi::class,'customerlogin']);
