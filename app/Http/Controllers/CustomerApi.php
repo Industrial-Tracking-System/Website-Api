@@ -29,6 +29,8 @@ class CustomerApi extends Controller
         return response()->json($cutomer);
     }
     
+    
+    
     public function customerlogin(Request $request){
         
           $request->validate([
