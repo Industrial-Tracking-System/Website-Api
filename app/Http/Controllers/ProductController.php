@@ -1,85 +1,53 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Employee;
+use App\Models\product_description;
+use App\Models\order;
+use App\Models\order_item;
 
-use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+ 
+    public function selcet_items(Request $requst ){
+        $pro = $requst->only('category_id','qantinty','size','customer_id');
+     
+        $arr=array();
+        $qan=array();
+        for($i=0;$i<$pro['size'];$i++){
+        $selctions[$i]=DB::table('product_descriptions')->where('category_id', $pro['category_id'][$i])->first();
+        $qan[$i]= $pro['qantinty'][$i];  
+        }
+            
+        
+        $order=new order();
+       
+        $order=new order();
+        $order->date="2021-05-11";
+         for($i=0;$i<$pro['size'];$i++){
+        $order->total_cost+=$selctions[$i]->cost*$qan[$i];
+        }
+        $order->employee_id=3+$i;
+        $order->customer_id=$pro['customer_id'];
+        $order->stauts='prepreing';
+        $order->inventory_id=1;
+        $order->save();
+        
+        
+        for($i=0;$i<$pro['size'];$i++){
+        $items=new order_item();
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        $items->quantity=$qan[$i];
+        $items->order_id=$order->id;    
+        $items->category_id=$pro['category_id'][$i];
+        $items->save();
+        }
+        
+        return response()->json(1);   
+        
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Product $product)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Product $product)
-    {
-        //
     }
 }
