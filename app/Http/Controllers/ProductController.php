@@ -11,11 +11,20 @@ use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
+    
+    public function show_products(){
+        $product=Product_description::get();
+        return response()->json($product);
+        
+            }
+    
+    
+    
  
     public function selcet_items(Request $requst ){
         $pro = $requst->only('category_id','qantinty','size','customer_id');
      
-        $arr=array();
+        $selctions=array();
         $qan=array();
         for($i=0;$i<$pro['size'];$i++){
         $selctions[$i]=DB::table('product_descriptions')->where('category_id', $pro['category_id'][$i])->first();
