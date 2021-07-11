@@ -5,12 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Order_item extends Model
+class Tracking_product extends Model
 {
     use HasFactory;
-          public function product_descriptions()
+    public function products()
     {
-        return $this->hasMany('App\Product_description');
+        return $this->hasMany('App\Product');
     }
-
 }

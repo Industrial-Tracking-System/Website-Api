@@ -22,6 +22,7 @@ class ProductController extends Controller
     
  
     public function selcet_items(Request $requst ){
+        
         $pro = $requst->only('category_id','qantinty','size','customer_id');
      
         $selctions=array();

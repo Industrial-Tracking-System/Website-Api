@@ -20,4 +20,8 @@ class Product extends Model
     {
         return $this->belongsTo('App\Product-description');
     }
+       public function Tracking_product()
+    {
+        return $this->belongsTo('App\Tracking_product');
+    }
 }
