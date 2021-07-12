@@ -34,9 +34,7 @@ class ProductController extends Controller
             
         
         $order=new order();
-       
-        $order=new order();
-        $order->date="2021-05-11";
+        $order->date="2021-05-11";//get it from mobile app 
          for($i=0;$i<$pro['size'];$i++){
         $order->total_cost+=$selctions[$i]->cost*$qan[$i];
         }
