@@ -15,6 +15,8 @@ class OrderController extends Controller
     public function index()
     {
         //
+        $order = Order::get();
+        return response()->json($order);
     }
 
     /**
@@ -22,9 +24,10 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function show_order()
     {
         //
+        
     }
 
     /**
