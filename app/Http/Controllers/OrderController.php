@@ -11,7 +11,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
-{  public function show_products(){
+  public function show_products(){
         $product=Product_description::get();
         return response()->json($product);
         
@@ -62,9 +62,6 @@ class OrderController extends Controller
         $res=Inventory::find($best_inv['id']);
         return response()->json($res);   
 
-         
-     }
-    
  
     public function selcet_items(Request $requst ){
 

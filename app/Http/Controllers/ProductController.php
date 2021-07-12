@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     
+
 }
