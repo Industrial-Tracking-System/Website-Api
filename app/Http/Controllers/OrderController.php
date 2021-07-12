@@ -6,11 +6,11 @@ use App\Models\product_description;
 use App\Models\order_item;
 use App\Models\Customer;
 use App\Models\Inventory;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class OrderController extends Controller{
   public function show_products(){
         $product=Product_description::get();
         return response()->json($product);
@@ -63,6 +63,8 @@ class OrderController extends Controller
         return response()->json($res);   
 
  
+         
+     }
     public function selcet_items(Request $requst ){
 
         
@@ -104,3 +106,4 @@ class OrderController extends Controller
 
     }
 }
+
