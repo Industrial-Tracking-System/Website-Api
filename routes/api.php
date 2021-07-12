@@ -4,7 +4,7 @@ use App\Http\Controllers\EmployeeApi;
 use App\Http\Controllers\inventoryApi;
 use App\Http\Controllers\carApi;
 use App\Http\Controllers\CustomerApi;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 
 Route::post('/login',[EmployeeApi::class,'login']);
 Route::get('/employees',[EmployeeApi::class,'show_employees']);
@@ -20,5 +20,11 @@ Route::post('/register',[CustomerApi::class,'register']);
 Route::post('/customerlogin',[CustomerApi::class,'customerlogin']);
 
 
-Route::post('/selcet_items',[ProductController::class,'selcet_items']);
-Route::get('/products',[ProductController::class,'show_products']);
+Route::post('/selcet_items',[OrderController::class,'selcet_items']);
+Route::get('/products',[OrderController::class,'show_products']);
+
+
+
+
+Route::post('/selcet_best_inventory',[OrderController::class,'selcet_best_inventory']);
+

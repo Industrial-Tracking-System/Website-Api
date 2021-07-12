@@ -21,7 +21,10 @@ class CreateCarsTable extends Migration
             $table->timestamps();
          
         });
+       
+        
     }
+ 
 
     /**
      * Reverse the migrations.
