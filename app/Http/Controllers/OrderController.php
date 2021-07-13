@@ -8,6 +8,8 @@ use App\Models\Customer;
 use App\Models\Inventory;
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
+use App\Models\Tracking_product;
+use App\Models\product;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller{
@@ -17,11 +19,11 @@ class OrderController extends Controller{
         
             }
     
-     public function selcet_best_inventory(Request $requst){
+     public static   function selcet_best_inventory($id ){
          
          #get the coutomer addres 
-         $id=$requst->only('id');         
-         $customer=Customer::find($id)->first();;
+        #$id=$requst->only('id');         
+         $customer=Customer::find($id);;
          $location=$customer->adress;
          $csutomer_loc=explode(',', $location);
          $csutomer_loc[0]+=0;#lat
@@ -60,36 +62,54 @@ class OrderController extends Controller{
              }
          }
         $res=Inventory::find($best_inv['id']);
-        return response()->json($res);   
 
+            return $res;   
+        
  
          
      }
-    public function selcet_items(Request $requst ){
-
+    public function make_order(Request $requst ){
         
         $pro = $requst->only('category_id','qantinty','size','customer_id');
-     
+        
+        $inv=$this->selcet_best_inventory($pro['customer_id']);
+        
+        
         $selctions=array();
         $qan=array();
-        for($i=0;$i<$pro['size'];$i++){
-        $selctions[$i]=DB::table('product_descriptions')->where('category_id', $pro['category_id'][$i])->first();
-        $qan[$i]= $pro['qantinty'][$i];  
-        }
-            
+        $costs=array();
+       for($i=0;$i<$pro['size'];$i++){
+         $qan[$i]= $pro['qantinty'][$i];  
+       $selctions[$i]= DB::table('products')->select(DB::raw('*'))->where('description_id', '=', $pro['category_id'][$i])->where('products.inventory_id','=',$inv['id'])->get();
+        $costs[$i]=DB::table('product_descriptions')->where('category_id', $pro['category_id'][$i])->first();
+        }   
         
-        $order=new order();
        
         $order=new order();
         $order->date="2021-05-11";
          for($i=0;$i<$pro['size'];$i++){
-        $order->total_cost+=$selctions[$i]->cost*$qan[$i];
+        $order->total_cost+=$costs[$i]->cost*$qan[$i];
         }
         $order->employee_id=3+$i;
         $order->customer_id=$pro['customer_id'];
         $order->stauts='prepreing';
         $order->inventory_id=1;
         $order->save();
+        for($i=0;$i<sizeof($selctions);$i++){
+
+        foreach($selctions[$i] as $selec){
+            $tracking_obj=new Tracking_product();
+         $tracking_obj->order_id=$order->id;
+        $tracking_obj->rfid=$selec->rfid;
+            $tracking_obj->save();
+
+        }
+        
+      
+        
+        }
+        
+        
         
         
         for($i=0;$i<$pro['size'];$i++){
@@ -100,10 +120,25 @@ class OrderController extends Controller{
         $items->category_id=$pro['category_id'][$i];
         $items->save();
         }
+        /*
+        for($i=0;$i<sizeof($selctions);$i++){
+            
+        foreach($selctions[$i] as $selec){
+         DB::table('products')->where('rfid', '=',$selec->rfid )->delete();
+
+        }
+           
+            
+        }
+        */
         
-        return response()->json(1);   
+      
+        
         
 
-    }
+            return response()->json(1);   
+        
+    
+}
 }
 

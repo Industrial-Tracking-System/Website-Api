@@ -19,12 +19,12 @@ Route::get('/cars/{id?}',[carApi::class,'show_car']);
 Route::post('/register',[CustomerApi::class,'register']);
 Route::post('/customerlogin',[CustomerApi::class,'customerlogin']);
 
+#Route::post('/selcet_best_inventory',[OrderController::class,'selcet_best_inventory']);
 
-Route::post('/selcet_items',[OrderController::class,'selcet_items']);
+Route::post('/make_order',[OrderController::class,'make_order']);
 Route::get('/products',[OrderController::class,'show_products']);
 
 
 
 
-Route::post('/selcet_best_inventory',[OrderController::class,'selcet_best_inventory']);
 

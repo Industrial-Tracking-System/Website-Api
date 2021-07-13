@@ -25,3 +25,6 @@ class Product extends Model
         return $this->belongsTo('App\Tracking_product');
     }
 }
+
+    
+    
