@@ -170,14 +170,27 @@ class OrderController extends Controller{
             
         }
         
-*/
-
-        
-        
-
-            return response()->json(1);   
-        
-    
+*/     
+           return response()->json(1);      
 }
+    
+    
+    public function order_arrived(Request $requst){
+        $order_id=$requst->only('order_id');
+        $order=order::find($order_id);
+        $products=DB::table('Tracking_products')->select(DB::raw('*'))->where('order_id', '=', $order_id)->get();
+       DB::table('tracking_products')->where('order_id', '=',$order_id)->delete();
+
+        for($i=0;$i<sizeof($products);$i++){
+             DB::table('products')->where('rfid', '=',$products[$i]->rfid)->delete();
+        }
+        # DB::table('products')->where('order_id', '=',$order_id)->delete();
+        
+
+            
+                   return response()->json(1);      
+
+        
+    }
 }
 

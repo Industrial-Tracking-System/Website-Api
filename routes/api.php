@@ -20,9 +20,10 @@ Route::post('/register',[CustomerApi::class,'register']);
 Route::post('/customerlogin',[CustomerApi::class,'customerlogin']);
 
 #Route::post('/selcet_best_inventory',[OrderController::class,'selcet_best_inventory']);
+Route::get('/products',[OrderController::class,'show_products']);
 
 Route::post('/make_order',[OrderController::class,'make_order']);
-Route::get('/products',[OrderController::class,'show_products']);
+Route::post('/order_arrived',[OrderController::class,'order_arrived']);
 
 
 
