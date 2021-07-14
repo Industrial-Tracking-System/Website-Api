@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Order;
 use App\Models\Tracking_product;
 use App\Models\product;
-
+use App\Models\car;
 use Illuminate\Http\Request;
 
 
@@ -85,6 +85,22 @@ class OrderController extends Controller{
         }
         return $temp;
     }
+    
+     public function select_car(){
+        
+                $car=car::all();
+                $temp=new car();
+
+          for($i=0;$i<sizeof($car);$i++){
+            if($car[$i]->available==1){
+                $temp=$car[$i];
+                $car[$i]->available=0;
+                $car[$i]->save();
+                break;
+            }
+        }
+        return $temp;
+    }
     public function make_order(Request $requst ){
 
         
@@ -93,6 +109,8 @@ class OrderController extends Controller{
         $inv=$this->selcet_best_inventory($pro['customer_id']);
         
         $employee=$this->select_employee();
+                $car=$this->select_car();
+
 
         $selctions=array();
         $qan=array();
@@ -111,6 +129,7 @@ class OrderController extends Controller{
         }
       
         $order->employee_id=$employee->id;
+        $order->car_id=$car->id;
         $order->customer_id=$pro['customer_id'];
         $order->stauts='prepreing';
         $order->inventory_id=$inv->id;
@@ -150,9 +169,8 @@ class OrderController extends Controller{
            
             
         }
-        */
         
-
+*/
 
         
         
