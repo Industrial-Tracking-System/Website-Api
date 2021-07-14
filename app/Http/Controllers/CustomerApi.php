@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\order;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -54,6 +56,13 @@ class CustomerApi extends Controller
         }
      
     
+    }
+    public function customer_orders($id){
+        
+        $cutomer=customer::find($id);
+
+        $orders=$cutomer->orders;
+        return response()->json($orders);
     }
 
 }

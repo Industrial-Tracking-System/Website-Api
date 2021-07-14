@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\order;
+
 use Auth;
 
 class Customer extends Model
@@ -24,6 +26,8 @@ class Customer extends Model
     ];
     public function orders()
     {
-        return $this->hasMany('App\Order');
+        
+        return $this->hasMany(order::class);
+    
     }
 }
