@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CarToOrder extends Migration
+class Cartoorder extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CarToOrder extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function (Blueprint $table) {
-            //
-            $table->unsignedbiginteger('car_id');
+        Schema::table('orders', function($table) {
+              $table->unsignedbiginteger('car_id');
             $table->foreign('car_id')->references('id')->on('cars');
-        });
+          });
     }
 
     /**
@@ -27,8 +26,6 @@ class CarToOrder extends Migration
      */
     public function down()
     {
-        Schema::table('order', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }

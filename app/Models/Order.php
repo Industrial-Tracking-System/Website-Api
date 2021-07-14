@@ -23,10 +23,15 @@ class Order extends Model
     {
         return $this->belongsTo('App\Inventory');
     }
+    public function car()
+    {
+        return $this->belongsTo(car::class);
+    }
  ///-----------------------------------------------------
 
    public function order_items()
     {
         return $this->hasMany('App\Order_item');
     }
+    
 }

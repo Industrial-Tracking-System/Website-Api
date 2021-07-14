@@ -23,4 +23,5 @@ class CreateAddersToInventory extends Migration
     {
         Schema::dropIfExists('_adders_to_inventory');
     }
+    
 }

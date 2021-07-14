@@ -16,6 +16,7 @@ class CreateTrackingProductsTable extends Migration
         Schema::create('tracking_products', function (Blueprint $table) {
             $table->unsignedbiginteger('order_id');
             $table->foreign('order_id')->references('id')->on('orders');
+            
             $table->unsignedbiginteger('rfid');
             $table->foreign('rfid')->references('rfid')->on('products');
             $table->timestamps();

@@ -15,7 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             
-$table->bigIncrements('rfid');
+                $table->bigIncrements('rfid');
             $table->unsignedbiginteger('description_id');
             $table->foreign('description_id')->references('category_id')->on('product_descriptions');
             $table->unsignedbiginteger('inventory_id');

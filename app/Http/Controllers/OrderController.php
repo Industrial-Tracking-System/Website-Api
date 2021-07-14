@@ -178,6 +178,10 @@ class OrderController extends Controller{
     public function order_arrived(Request $requst){
         $order_id=$requst->only('order_id');
         $order=order::find($order_id);
+        
+        DB::table('employees') ->where('id', $order[0]->employee_id) ->update(['available' => 1]);
+        DB::table('cars') ->where('id',$order[0]->car_id) ->update(['available' => 1]);
+        /*
         $products=DB::table('Tracking_products')->select(DB::raw('*'))->where('order_id', '=', $order_id)->get();
        DB::table('tracking_products')->where('order_id', '=',$order_id)->delete();
 
@@ -186,7 +190,7 @@ class OrderController extends Controller{
         }
         # DB::table('products')->where('order_id', '=',$order_id)->delete();
         
-
+*/
             
                    return response()->json(1);      
 

@@ -14,7 +14,7 @@ class CreateOrdersTable extends Migration
     public function up()
     {
         Schema::create('orders', function (Blueprint $table) {
-$table->bigIncrements('id');
+            $table->bigIncrements('id');
 
             $table->date('date');
             $table->double('total_cost',100);
@@ -28,6 +28,7 @@ $table->bigIncrements('id');
 
             $table->timestamps();
         });
+        
     }
 
     /**
