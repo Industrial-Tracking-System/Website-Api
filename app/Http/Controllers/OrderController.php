@@ -63,6 +63,7 @@ class OrderController extends Controller{
                  $best_inv=$distance[$i];
              }
          }
+         #asort($distance);
         $res=Inventory::find($best_inv['id']);
 
             return $res;   
@@ -101,6 +102,7 @@ class OrderController extends Controller{
         }
         return $temp;
     }
+    
     public function make_order(Request $requst ){
 
         
@@ -109,7 +111,7 @@ class OrderController extends Controller{
         $inv=$this->selcet_best_inventory($pro['customer_id']);
         
         $employee=$this->select_employee();
-                $car=$this->select_car();
+        $car=$this->select_car();
 
 
         $selctions=array();
@@ -159,18 +161,8 @@ class OrderController extends Controller{
         $items->category_id=$pro['category_id'][$i];
         $items->save();
         }
-        /*
-        for($i=0;$i<sizeof($selctions);$i++){
-            
-        foreach($selctions[$i] as $selec){
-         DB::table('products')->where('rfid', '=',$selec->rfid )->delete();
-
-        }
-           
-            
-        }
-        
-*/     
+ 
+    
            return response()->json(1);      
 }
     
