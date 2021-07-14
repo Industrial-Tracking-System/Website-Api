@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Order;
 use App\Models\Tracking_product;
 use App\Models\product;
+
 use Illuminate\Http\Request;
+
 
 class OrderController extends Controller{
   public function show_products(){
@@ -68,13 +70,30 @@ class OrderController extends Controller{
  
          
      }
+    public function select_employee(){
+        
+                $employee=Employee::all();
+                $temp=new Employee();
+
+          for($i=0;$i<sizeof($employee);$i++){
+            if($employee[$i]->is_manager!=1 && $employee[$i]->available==1){
+                $temp=$employee[$i];
+                $employee[$i]->available=0;
+                $employee[$i]->save();
+                break;
+            }
+        }
+        return $temp;
+    }
     public function make_order(Request $requst ){
+
         
         $pro = $requst->only('category_id','qantinty','size','customer_id');
         
         $inv=$this->selcet_best_inventory($pro['customer_id']);
         
-        
+        $employee=$this->select_employee();
+
         $selctions=array();
         $qan=array();
         $costs=array();
@@ -90,10 +109,11 @@ class OrderController extends Controller{
          for($i=0;$i<$pro['size'];$i++){
         $order->total_cost+=$costs[$i]->cost*$qan[$i];
         }
-        $order->employee_id=3+$i;
+      
+        $order->employee_id=$employee->id;
         $order->customer_id=$pro['customer_id'];
         $order->stauts='prepreing';
-        $order->inventory_id=1;
+        $order->inventory_id=$inv->id;
         $order->save();
         for($i=0;$i<sizeof($selctions);$i++){
 
@@ -132,7 +152,8 @@ class OrderController extends Controller{
         }
         */
         
-      
+
+
         
         
 
