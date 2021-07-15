@@ -18,7 +18,10 @@ use Illuminate\Http\Request;
 class OrderController extends Controller{
   public function show_products(){
         $product=Product_description::get();
-        return $product;
+        #return response()->json($product);
+    $costs=DB::table('product_descriptions')->select(DB::raw('*'))->get();
+      return $costs;
+
         
             }
     
