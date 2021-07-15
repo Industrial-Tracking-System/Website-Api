@@ -6,6 +6,8 @@ use App\Models\Employee;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+
 class EmployeeApi extends Controller
 {
     public function login(Request $request)
@@ -24,6 +26,12 @@ class EmployeeApi extends Controller
             return "wrong data";
         }
         
+    }
+     public function set_avilable(){
+    DB::table('employees') ->update(['available' => 1]);
+        DB::table('cars') ->update(['available' => 1]);
+        return response()->json(1);
+
     }
      public function show_employees(){
          

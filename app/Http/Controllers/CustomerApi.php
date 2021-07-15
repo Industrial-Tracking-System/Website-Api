@@ -57,6 +57,7 @@ class CustomerApi extends Controller
      
     
     }
+   
     public function customer_orders($id){
         
         $cutomer=customer::find($id);

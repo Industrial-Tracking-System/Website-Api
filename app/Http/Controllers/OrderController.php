@@ -63,10 +63,10 @@ class OrderController extends Controller{
                  $best_inv=$distance[$i];
              }
          }
-         #asort($distance);
+         asort($distance);
         $res=Inventory::find($best_inv['id']);
 
-            return $res;   
+            return $distance;   
         
  
          
@@ -112,7 +112,16 @@ class OrderController extends Controller{
         
         $employee=$this->select_employee();
         $car=$this->select_car();
-
+        $flag=false;
+       foreach($inv as $n){
+           $id=$n['id'];
+           $inv=inventory::find($id);
+           $inventory_products=$inv->products;
+           if(sizeof($inventory_products)>0){
+               $inv_id=$inventory_products[0]->inventory_id;
+               break;
+          }
+       }
 
         $selctions=array();
         $qan=array();
@@ -134,7 +143,7 @@ class OrderController extends Controller{
         $order->car_id=$car->id;
         $order->customer_id=$pro['customer_id'];
         $order->stauts='prepreing';
-        $order->inventory_id=$inv->id;
+        $order->inventory_id=$inv_id;
         $order->save();
         for($i=0;$i<sizeof($selctions);$i++){
 
@@ -184,7 +193,7 @@ class OrderController extends Controller{
         
 */
             
-                   return response()->json(1);      
+                   return response()->json($inv_id);      
 
         
     }
