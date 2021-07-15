@@ -11,16 +11,23 @@ use App\Models\Tracking_product;
 use App\Models\product;
 use App\Models\car;
 use App\Models\Product_description;
+use App\Models\factory;
 
 use Illuminate\Http\Request;
 
 
 class OrderController extends Controller{
   public function show_products(){
-        $product=Product_description::get();
-        return response()->json($product);
+        #$product=Product_description::get();
+        #return response()->json($product);
+                $fact=new factory();
+                $fact->name="factooo";
+                $fact->capacity=500;
+                $fact->save;    
+                $ret=factory::find("factooo");
+              return response()->json($ret);
 
-        
+                
             }
     
      public static   function selcet_best_inventory($id ){
