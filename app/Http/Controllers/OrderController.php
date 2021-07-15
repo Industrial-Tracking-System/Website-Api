@@ -23,7 +23,7 @@ class OrderController extends Controller{
                 $fact=new Factory();
                 $fact->name="factooo";
                 $fact->capacity=500;
-                $fact->save;    
+                $fact->save();    
                 $ret=factory::all();
               return response()->json($ret);
 
