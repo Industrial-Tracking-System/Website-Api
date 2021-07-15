@@ -11,7 +11,7 @@ use App\Models\Tracking_product;
 use App\Models\product;
 use App\Models\car;
 use App\Models\Product_description;
-use App\Models\factory;
+use App\Models\Factory;
 
 use Illuminate\Http\Request;
 
@@ -20,7 +20,7 @@ class OrderController extends Controller{
   public function show_products(){
         #$product=Product_description::get();
         #return response()->json($product);
-                $fact=new factory();
+                $fact=new Factory();
                 $fact->name="factooo";
                 $fact->capacity=500;
                 $fact->save;    
