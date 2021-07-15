@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Models\Employee;
-use App\Models\product_description;
 use App\Models\order_item;
 use App\Models\Customer;
 use App\Models\Inventory;
@@ -11,13 +10,15 @@ use App\Models\Order;
 use App\Models\Tracking_product;
 use App\Models\product;
 use App\Models\car;
+use App\Models\Product_description;
+
 use Illuminate\Http\Request;
 
 
 class OrderController extends Controller{
   public function show_products(){
-        $product=Product_description::get();
-        return response()->json($product);
+        #$product=Product_description::get();
+        return response()->json("Asdas");
         
             }
     
