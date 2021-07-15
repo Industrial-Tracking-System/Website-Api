@@ -16,7 +16,7 @@ class Inventory extends Model
     //----------------------------------------
        public function orders()
     {
-        return $this->hasMany('App\Order');
+        return $this->hasMany(order::class);
     }
         public function products()
     {
