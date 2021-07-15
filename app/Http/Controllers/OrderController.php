@@ -21,10 +21,8 @@ class OrderController extends Controller{
         #$product=Product_description::get();
         #return response()->json($product);
                 $fact=new Factory();
-                $fact->name="factooo";
-                $fact->capacity=500;
-                $fact->save();    
-                $ret=factory::all();
+              
+       $ret= DB::table('factories')->select(DB::raw('*'))->get();
               return response()->json($ret);
 
                 
