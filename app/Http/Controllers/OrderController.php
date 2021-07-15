@@ -17,8 +17,8 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller{
   public function show_products(){
-        #$product=Product_description::get();
-        return response()->json("Asdas");
+        $product=Product_description::get();
+        return response()->json($product);
         
             }
     
