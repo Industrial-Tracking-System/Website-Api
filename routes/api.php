@@ -5,6 +5,9 @@ use App\Http\Controllers\inventoryApi;
 use App\Http\Controllers\carApi;
 use App\Http\Controllers\CustomerApi;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
+
+
 
 ///Employee Apies 
 Route::post('/login',[EmployeeApi::class,'login']);
@@ -38,10 +41,10 @@ Route::get('/orders/{id?}',[CustomerApi::class,'customer_orders']);
 
 ///order apies 
 Route::get('/products',[OrderController::class,'show_products']);
-
 Route::post('/make_order',[OrderController::class,'make_order']);
 Route::post('/order_arrived',[OrderController::class,'order_arrived']);
 ////
+Route::get('/add_products',[ProductController::class,'add_products']);
 
 
 
