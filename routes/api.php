@@ -14,6 +14,7 @@ Route::post('/login',[EmployeeApi::class,'login']);
 Route::get('/employees',[EmployeeApi::class,'show_employees']);
 Route::get('/employees/{id?}',[EmployeeApi::class,'show_employee']);
 Route::get('/set_avilable',[EmployeeApi::class,'set_avilable']);
+Route::get('/logout',[EmployeeApi::class,'logout']);
 
 ////
 
