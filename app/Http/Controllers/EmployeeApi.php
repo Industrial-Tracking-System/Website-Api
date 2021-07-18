@@ -25,7 +25,8 @@ class EmployeeApi extends Controller
             return response()->json($success);          
       }
         else {
-            return "wrong data";
+                  return response()->json($request);          
+;
         }
         
     }

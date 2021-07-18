@@ -187,18 +187,17 @@ class OrderController extends Controller{
         
         DB::table('employees') ->where('id', $order[0]->employee_id) ->update(['available' => 1]);
         DB::table('cars') ->where('id',$order[0]->car_id) ->update(['available' => 1]);
-        /*
+        
         $products=DB::table('Tracking_products')->select(DB::raw('*'))->where('order_id', '=', $order_id)->get();
        DB::table('tracking_products')->where('order_id', '=',$order_id)->delete();
 
         for($i=0;$i<sizeof($products);$i++){
-             DB::table('products')->where('rfid', '=',$products[$i]->rfid)->delete();
+             DB::table('products')->where('rfid','=',$products[$i]->rfid)->delete();
         }
-        # DB::table('products')->where('order_id', '=',$order_id)->delete();
-        
-*/
-            
-                   return response()->json($inv_id);      
+        # DB::table('products')->where('order_id', '=',$order_id)->delete();     
+
+           
+                   return response()->json($products);      
 
         
     }

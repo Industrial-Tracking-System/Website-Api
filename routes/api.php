@@ -41,9 +41,12 @@ Route::post('/customer_logout',[CustomerApi::class,'logout']);
 ////
 
 ///order apies 
+Route::middleware([customer_loggedin::class])->group(function () {
 Route::get('/products',[OrderController::class,'show_products']);
 Route::post('/make_order',[OrderController::class,'make_order']);
 Route::post('/order_arrived',[OrderController::class,'order_arrived']);
+});
+
 ////
 Route::get('/add_products',[ProductController::class,'add_products']);
 //
