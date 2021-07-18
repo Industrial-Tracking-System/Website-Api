@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class EmployeeApi extends Controller
 {
@@ -19,7 +20,8 @@ class EmployeeApi extends Controller
         
          $id=Auth::guard('Employee')->user()->id;
           $success=Employee::find($id);
-
+          $success->api_token=Str::random(60);
+          $success->save();
             return response()->json($success);          
       }
         else {
@@ -44,5 +46,12 @@ class EmployeeApi extends Controller
      return response()->json($employees);
         
     }
+        public function logout(Request $request){
+
+        $affected = DB::table('employees')
+              ->where('id', '=',$request['id'])
+              ->update(['api_token' => NULL]);
+    
+}
         
 }

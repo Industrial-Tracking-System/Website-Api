@@ -32,22 +32,22 @@ class OrderController extends Controller{
          $customer=Customer::find($id);;
          $location=$customer->adress;
          $csutomer_loc=explode(',', $location);
-         $csutomer_loc[0]+=0;#lat
-         $csutomer_loc[1]+=0;#long
+         $csutomer_loc[0]=(double)$csutomer_loc[0];#lat
+         $csutomer_loc[1]=(double)$csutomer_loc[1];#long
          /////////////////
          $x=0;
          $inv=inventory::get();
          $size=inventory::count();
          $distance=array();
-                      $earthRadius = 6371000;
+        $earthRadius = 6371000;
 
          for($i=0;$i<$size;$i++){
             $temp=($inv[$i]->addres);#invtory loction 
             $inventory_loc=explode(',',$temp);
-             $inventory_loc[0]+=0;#lat
-             $inventory_loc[1]+=0;#long
+             $inventory_loc[0]=(double)$inventory_loc[0];#lat
+             $inventory_loc[1]=(double)$inventory_loc[1];#long
              #calac distance between invnetory and customer
-             $latFrom = deg2rad($inventory_loc[0]);
+        $latFrom = deg2rad($inventory_loc[0]);
         $lonFrom = deg2rad($inventory_loc[1]);
         $latTo = deg2rad($csutomer_loc[0]);
         $lonTo = deg2rad($csutomer_loc[1]);
@@ -75,6 +75,7 @@ class OrderController extends Controller{
  
          
      }
+   
     public function select_employee(){
         
                 $employee=Employee::all();
@@ -201,5 +202,6 @@ class OrderController extends Controller{
 
         
     }
+    
 }
 

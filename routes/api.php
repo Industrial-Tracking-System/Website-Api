@@ -14,6 +14,7 @@ Route::post('/login',[EmployeeApi::class,'login']);
 Route::get('/employees',[EmployeeApi::class,'show_employees']);
 Route::get('/employees/{id?}',[EmployeeApi::class,'show_employee']);
 Route::get('/set_avilable',[EmployeeApi::class,'set_avilable']);
+Route::post('/logout',[EmployeeApi::class,'logout']);
 
 ////
 
@@ -36,7 +37,7 @@ Route::get('/cars/{id?}',[carApi::class,'show_car']);
 Route::post('/register',[CustomerApi::class,'register']);
 Route::post('/customerlogin',[CustomerApi::class,'customerlogin']);
 Route::get('/orders/{id?}',[CustomerApi::class,'customer_orders']);
-
+Route::post('/customer_logout',[CustomerApi::class,'logout']);
 ////
 
 ///order apies 
@@ -45,7 +46,7 @@ Route::post('/make_order',[OrderController::class,'make_order']);
 Route::post('/order_arrived',[OrderController::class,'order_arrived']);
 ////
 Route::get('/add_products',[ProductController::class,'add_products']);
-
+//
 
 
 
