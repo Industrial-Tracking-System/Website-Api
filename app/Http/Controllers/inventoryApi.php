@@ -3,13 +3,14 @@ namespace App\Http\Controllers;
 use App\Models\Inventory;
 use App\Models\order; 
 use Illuminate\Http\Request;
+use App\Models\Factory;
 
 class inventoryApi extends Controller
 {
     
     public function show_inventories(){
          
-        $inventories=Inventory::get();
+        $inventories=Factory::get();
      return response()->json($inventories);
         
     }
