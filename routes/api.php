@@ -6,7 +6,7 @@ use App\Http\Controllers\carApi;
 use App\Http\Controllers\CustomerApi;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\ProductDescriptionController;
 
 
 ///Employee Apies 
@@ -39,10 +39,13 @@ Route::post('/customerlogin',[CustomerApi::class,'customerlogin']);
 Route::get('/orders/{id?}',[CustomerApi::class,'customer_orders']);
 Route::post('/customer_logout',[CustomerApi::class,'logout']);
 ////
+Route::get('/products',[OrderController::class,'show_products']);
+
+Route::post('/add_products_descrtpions',[ProductDescriptionController::class,'add_products_descrtpions']);
+
 
 ///order apies 
 Route::middleware([customer_loggedin::class])->group(function () {
-Route::get('/products',[OrderController::class,'show_products']);
 Route::post('/make_order',[OrderController::class,'make_order']);
 Route::post('/order_arrived',[OrderController::class,'order_arrived']);
 });

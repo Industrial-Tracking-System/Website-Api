@@ -26,7 +26,7 @@ class EmployeeApi extends Controller
       }
         else {
                   return response()->json($request);          
-;
+
         }
         
     }
