@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 class CustomerApi extends Controller
 {
+     public function show_customers(){
+        
+        $cutomers=customer::get();
+         return response()->json($cutomers);
+     
+     }
     public function register(Request $request){
         
     $data=$request->validate([

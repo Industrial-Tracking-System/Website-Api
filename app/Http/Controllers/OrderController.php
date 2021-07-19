@@ -24,6 +24,13 @@ class OrderController extends Controller{
 
                 
             }
+ public function show_orders(){
+        $orders=Order::get();
+        return response()->json($orders);
+   
+
+                
+            }
     
      public static   function selcet_best_inventory($id ){
          
