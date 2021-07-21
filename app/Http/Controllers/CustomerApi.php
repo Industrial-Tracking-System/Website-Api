@@ -64,7 +64,9 @@ class CustomerApi extends Controller
           
       }
         else{
-                 return response()->json("wrong_data");
+                return response()->json([
+        'message' => 'worong data ',
+]);        
   
         }
      
