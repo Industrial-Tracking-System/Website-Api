@@ -41,11 +41,8 @@ public function show_order($id){
          
          #get the coutomer addres 
         #$id=$requst->only('id');         
-         $customer=Customer::find($id);;
-         $location=$customer->adress;
-         $csutomer_loc=explode(',', $location);
-         $csutomer_loc[0]=(double)$csutomer_loc[0];#lat
-         $csutomer_loc[1]=(double)$csutomer_loc[1];#long
+         $customer=Customer::find($id);
+     
          /////////////////
          $x=0;
          $inv=inventory::get();
@@ -54,15 +51,11 @@ public function show_order($id){
         $earthRadius = 6371000;
 
          for($i=0;$i<$size;$i++){
-            $temp=($inv[$i]->addres);#invtory loction 
-            $inventory_loc=explode(',',$temp);
-             $inventory_loc[0]=(double)$inventory_loc[0];#lat
-             $inventory_loc[1]=(double)$inventory_loc[1];#long
-             #calac distance between invnetory and customer
-        $latFrom = deg2rad($inventory_loc[0]);
-        $lonFrom = deg2rad($inventory_loc[1]);
-        $latTo = deg2rad($csutomer_loc[0]);
-        $lonTo = deg2rad($csutomer_loc[1]);
+
+        $latFrom = deg2rad($inv[$i]->latitude);
+        $lonFrom = deg2rad($inv[$i]->longitude);
+        $latTo = deg2rad($customer->latitude);
+        $lonTo = deg2rad($customer->longitude);
         $latDelta = $latTo - $latFrom;
         $lonDelta = $lonTo - $lonFrom;
         $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
@@ -189,7 +182,8 @@ public function show_order($id){
         }
  
     
-           return response()->json(1);      
+           return response()->json(1);   
+           
 }
     
     

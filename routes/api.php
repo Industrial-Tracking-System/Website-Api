@@ -48,11 +48,14 @@ Route::post('/add_products_descrtpions',[ProductDescriptionController::class,'ad
 
 
 ///order apies 
-Route::middleware([customer_loggedin::class])->group(function () {
 Route::post('/make_order',[OrderController::class,'make_order']);
 
 Route::post('/order_arrived',[OrderController::class,'order_arrived']);
+/*
+Route::middleware([customer_loggedin::class])->group(function () {
+
 });
+*/
 Route::get('/orders',[OrderController::class,'show_orders']);
 Route::get('/orders/{id?}',[OrderController::class,'show_order']);
 
