@@ -21,7 +21,7 @@ class CustomerApi extends Controller
     public function register(Request $request){
         
     $data=$request->validate([
-            'email' => 'required|max:191',
+            'email' => 'required|max:191|email',
               'company_name'=>'required|string',
         'password' => 'required',
             ]);
