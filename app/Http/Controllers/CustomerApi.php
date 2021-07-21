@@ -18,6 +18,10 @@ class CustomerApi extends Controller
          return response()->json($cutomers);
      
      }
+    public function show_customer($id){
+        $cutomer =customer::find($id);
+        return response()->json($cutomer);
+    }
     public function register(Request $request){
         
     $data=$request->validate([
