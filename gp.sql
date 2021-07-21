@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2021 at 04:07 PM
+-- Generation Time: Jul 21, 2021 at 08:38 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -41,8 +41,8 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`id`, `available`, `factory_id`, `created_at`, `updated_at`, `type`) VALUES
-(6, 1, 'fact', NULL, '2021-07-18 12:23:46', NULL),
-(7, 1, 'fact', NULL, '2021-07-18 12:27:09', NULL),
+(6, 0, 'fact', NULL, '2021-07-21 16:35:13', NULL),
+(7, 0, 'fact', NULL, '2021-07-21 16:35:54', NULL),
 (8, 0, 'fact', NULL, '2021-07-18 14:07:26', NULL),
 (9, 1, 'fact', NULL, '2021-07-15 11:21:32', NULL),
 (10, 1, 'fact', NULL, '2021-07-15 11:22:24', NULL);
@@ -56,7 +56,6 @@ INSERT INTO `cars` (`id`, `available`, `factory_id`, `created_at`, `updated_at`,
 CREATE TABLE `customers` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `adress` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `company_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `credit_limit` double NOT NULL,
   `phone` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -64,18 +63,18 @@ CREATE TABLE `customers` (
   `updated_at` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `api_token` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `api_token` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `latitude` double NOT NULL,
+  `longitude` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `name`, `adress`, `company_name`, `credit_limit`, `phone`, `email`, `updated_at`, `created_at`, `password`, `api_token`) VALUES
-(10, '00', '30.0273250366121, 31.23310003798322', 'sayda', 5000, '01005748984', 'mohamed', '2021-07-18 16:07:15', '2021-05-08 20:44:42', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', 'FAP8PHCyrhE2MvkdXBRk8JfAMO4LEHEcMPrTnbyQSVQbOFrZGcmdOkmvNu6N'),
-(11, 'mohamed', '30.03558716119857, 31.23597847619803', 'asdasd', 7000, '01005747984', 'nn@aa.com', NULL, '', '123', NULL),
-(12, '00', 'asdasd', 'sayda', 5000, '01005748984', 'mohamed', '2021-07-18 14:37:43', '2021-07-18 14:37:43', '$2y$10$9mcjCe1w2RRVpW5HoPdNAu1q0EhQ04EwsanIB0BMR3amvO5CkEhD2', NULL),
-(13, '00', 'asdasd', 'sayda', 5000, '01005748984', 'mahmoud', '2021-07-18 16:06:05', '2021-07-18 14:42:37', '$2y$10$RQWEAfi9J4o4racMBvuQnODSYpYTHAYkb9hZluJaE4H8BMYJScYpO', NULL);
+INSERT INTO `customers` (`id`, `name`, `company_name`, `credit_limit`, `phone`, `email`, `updated_at`, `created_at`, `password`, `api_token`, `latitude`, `longitude`) VALUES
+(10, '00', 'sayda', 5000, '01005748984', 'mohamed', '2021-07-21 16:04:57', '2021-05-08 20:44:42', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', 'IuKd9sgdKgRhRRliAvlPI0OFAC9Q0r6PC1GeOsaTFrVZQLD2U2tnrFzbltHU', 30.027323444436554, 31.23303272698302),
+(11, 'mohamed', 'asdasd', 7000, '01005747984', 'nn@aa.com', NULL, '', '123', NULL, 30.035346763276976, 31.235914764474863);
 
 -- --------------------------------------------------------
 
@@ -104,10 +103,10 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `name`, `is_manager`, `email`, `password`, `api_token`, `phone`, `available`, `job_tittle`, `supervisor_id`, `factory_id`, `created_at`, `updated_at`) VALUES
-(3, 'moh', 0, 'moh1@factory', '$2y$10$XGrJ775qahfoLwKGbrXAZedXU0RzmXQBu6.fr2en8awHE5zMW5WJ.', 'd0RzX4pSHuyWbI1PMJbsuZtS6yt4cedyr2rzcgELwnMcs3Fm5dSKYJCQyocp', NULL, 1, 'spo', NULL, 'fact', '2021-01-30 13:31:52', '2021-07-19 11:01:41'),
-(4, 'zz', 1, 'zz2@factory', '$2y$10$vZCUhD12L/uSo.MZla8aG.MKVgt0tIKxApWhkZ2LJ3BzG44T7o9MO', '50Z0Iyq2ZcwnXIVXPeypeGKwfGQacIAYIqmSMbEqUig2FRZqbGYHusef85EP', NULL, 1, 'aas', NULL, 'fact', '2021-01-30 13:32:54', '2021-07-19 10:33:35'),
-(5, 'mojhamed', 0, 'mojhamed3@factory', '$2y$10$PDWrWYOee6yAxhU.jaE.A.iGZQhH2dJBXoagMv8Y1kZOP3kotMTIi', NULL, NULL, 1, 'supervioser', NULL, 'fact', '2021-02-05 13:47:19', '2021-07-18 12:27:09'),
-(6, 'ahmed', 0, 'ahmed4@factory', '$2y$10$26JVMIdLzK6VboGFqjT6auqHhKm16LUJcjjEg1WgmC3ahlJ1qzKSi', NULL, NULL, 0, 'sop', NULL, 'fact', '2021-02-06 09:42:03', '2021-07-18 14:07:26'),
+(3, 'moh', 0, 'moh1@factory', '$2y$10$XGrJ775qahfoLwKGbrXAZedXU0RzmXQBu6.fr2en8awHE5zMW5WJ.', '4YjfPKqzceKKUq9CIJvH0Wimf6cozs3VXIO0Ry7ZaQpIYlBF0EniPJwDXwrq', '01005748984', 0, 'spo', NULL, 'fact', '2021-01-30 13:31:52', '2021-07-21 16:35:13'),
+(4, 'zz', 1, 'zz2@factory', '$2y$10$vZCUhD12L/uSo.MZla8aG.MKVgt0tIKxApWhkZ2LJ3BzG44T7o9MO', '7YhADZ59kkYPcRN5jHrCaLOesFxU1fceCaGG6u0Jrl0dnTiYQ7zwqXBf7AfK', NULL, 1, 'aas', NULL, 'fact', '2021-01-30 13:32:54', '2021-07-21 14:39:39'),
+(5, 'mojhamed', 0, 'mojhamed3@factory', '$2y$10$PDWrWYOee6yAxhU.jaE.A.iGZQhH2dJBXoagMv8Y1kZOP3kotMTIi', NULL, NULL, 0, 'supervioser', NULL, 'fact', '2021-02-05 13:47:19', '2021-07-21 16:35:54'),
+(6, 'ahmed', 0, 'ahmed4@factory', '$2y$10$26JVMIdLzK6VboGFqjT6auqHhKm16LUJcjjEg1WgmC3ahlJ1qzKSi', NULL, '01005748984', 0, 'sop', NULL, 'fact', '2021-02-06 09:42:03', '2021-07-18 14:07:26'),
 (9, 'sdf', 0, 'sdf5@factory', '$2y$10$bfxX.1jMFEw1xCavwY4ihupMfkkLAM6X7VnFN7APSf3wfm3EwvH5y', NULL, NULL, 1, 'sdfsdf', NULL, 'fact', '2021-07-12 20:12:13', '2021-07-15 11:21:05');
 
 -- --------------------------------------------------------
@@ -144,16 +143,17 @@ CREATE TABLE `inventories` (
   `factory_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `addres` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
+  `latitude` double NOT NULL,
+  `longitude` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `inventories`
 --
 
-INSERT INTO `inventories` (`id`, `capaicty`, `location`, `employee_id`, `factory_id`, `created_at`, `updated_at`, `addres`) VALUES
-(1, 500, 'sayda', 3, 'fact', NULL, NULL, '30.029123739785703,31.237168780811302'),
-(2, 600, 'saad zagloul', 6, 'fact', NULL, NULL, '30.036518845133443,31.240557020277983');
+INSERT INTO `inventories` (`id`, `capaicty`, `location`, `employee_id`, `factory_id`, `created_at`, `updated_at`, `latitude`, `longitude`) VALUES
+(1, 500, 'sayda', 3, 'fact', NULL, NULL, 30.029123739785703, 31.237168780811302),
+(2, 600, 'saad zagloul', 6, 'fact', NULL, NULL, 30.036518845133443, 31.240557020277983);
 
 -- --------------------------------------------------------
 
@@ -201,7 +201,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (27, '2021_07_17_124029_add_tokentoemploye', 12),
 (28, '2021_07_17_124603_token_to_employee', 13),
 (29, '2021_07_18_143153_add_token', 14),
-(30, '2021_07_19_130157_add_quantity_and_url_to_product__des', 15);
+(30, '2021_07_19_130157_add_quantity_and_url_to_product__des', 15),
+(31, '2021_07_21_182107_add_long_and_lat_to_tables', 16);
 
 -- --------------------------------------------------------
 
@@ -327,7 +328,9 @@ INSERT INTO `orders` (`id`, `date`, `total_cost`, `stauts`, `customer_id`, `empl
 (68, '2021-05-11', 1350, 'prepreing', 10, 3, 1, '2021-07-14 17:15:00', '2021-07-14 17:15:00', 6),
 (69, '2021-05-11', 650, 'prepreing', 10, 5, 2, '2021-07-15 11:45:00', '2021-07-15 11:45:00', 6),
 (70, '2021-05-11', 650, 'prepreing', 10, 5, 1, '2021-07-18 12:27:09', '2021-07-18 12:27:09', 7),
-(71, '2021-05-11', 650, 'prepreing', 10, 6, 1, '2021-07-18 14:07:26', '2021-07-18 14:07:26', 8);
+(71, '2021-05-11', 650, 'prepreing', 10, 6, 1, '2021-07-18 14:07:26', '2021-07-18 14:07:26', 8),
+(72, '2021-05-11', 650, 'prepreing', 11, 3, 2, '2021-07-21 16:35:14', '2021-07-21 16:35:14', 6),
+(73, '2021-05-11', 650, 'prepreing', 10, 5, 1, '2021-07-21 16:35:54', '2021-07-21 16:35:54', 7);
 
 -- --------------------------------------------------------
 
@@ -361,7 +364,11 @@ INSERT INTO `order_items` (`quantity`, `order_id`, `category_id`, `created_at`, 
 (1, 70, 1, '2021-07-18 12:27:10', '2021-07-18 12:27:10'),
 (10, 70, 2, '2021-07-18 12:27:10', '2021-07-18 12:27:10'),
 (1, 71, 1, '2021-07-18 14:07:27', '2021-07-18 14:07:27'),
-(10, 71, 2, '2021-07-18 14:07:27', '2021-07-18 14:07:27');
+(10, 71, 2, '2021-07-18 14:07:27', '2021-07-18 14:07:27'),
+(1, 72, 1, '2021-07-21 16:35:14', '2021-07-21 16:35:14'),
+(10, 72, 2, '2021-07-21 16:35:15', '2021-07-21 16:35:15'),
+(1, 73, 1, '2021-07-21 16:35:55', '2021-07-21 16:35:55'),
+(10, 73, 2, '2021-07-21 16:35:55', '2021-07-21 16:35:55');
 
 -- --------------------------------------------------------
 
@@ -411,12 +418,14 @@ CREATE TABLE `product_descriptions` (
 --
 
 INSERT INTO `product_descriptions` (`category_id`, `category_name`, `cost`, `created_at`, `updated_at`, `image_path`, `quantity`) VALUES
-(1, 'Food', 50, NULL, NULL, 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 0),
-(2, 'drink', 60, NULL, NULL, 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 0),
+(1, 'Food', 50, '2021-07-19 11:59:17', NULL, 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 0),
+(2, 'drink', 60, '2021-07-19 11:59:17', NULL, 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 0),
 (3, 'cockacola', 120, '2021-07-19 11:58:30', '2021-07-19 11:58:30', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15),
 (4, 'oil', 120, '2021-07-19 11:58:50', '2021-07-19 11:58:50', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15),
 (5, 'chpis', 120, '2021-07-19 11:59:04', '2021-07-19 11:59:04', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15),
-(6, 'choclate', 120, '2021-07-19 11:59:17', '2021-07-19 11:59:17', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15);
+(6, 'choclate', 120, '2021-07-19 11:59:17', '2021-07-19 11:59:17', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15),
+(7, 'sprite', 45, '2021-07-19 12:36:50', '2021-07-19 12:36:50', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15),
+(8, '3nab', 54, '2021-07-19 12:37:11', '2021-07-19 12:37:11', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15);
 
 -- --------------------------------------------------------
 
@@ -441,7 +450,13 @@ INSERT INTO `tracking_products` (`order_id`, `rfid`, `created_at`, `updated_at`)
 (70, 21, '2021-07-18 12:27:10', '2021-07-18 12:27:10'),
 (71, 22, '2021-07-18 14:07:26', '2021-07-18 14:07:26'),
 (71, 26, '2021-07-18 14:07:27', '2021-07-18 14:07:27'),
-(71, 21, '2021-07-18 14:07:27', '2021-07-18 14:07:27');
+(71, 21, '2021-07-18 14:07:27', '2021-07-18 14:07:27'),
+(72, 24, '2021-07-21 16:35:14', '2021-07-21 16:35:14'),
+(72, 23, '2021-07-21 16:35:14', '2021-07-21 16:35:14'),
+(72, 25, '2021-07-21 16:35:14', '2021-07-21 16:35:14'),
+(73, 22, '2021-07-21 16:35:54', '2021-07-21 16:35:54'),
+(73, 26, '2021-07-21 16:35:55', '2021-07-21 16:35:55'),
+(73, 21, '2021-07-21 16:35:55', '2021-07-21 16:35:55');
 
 -- --------------------------------------------------------
 
@@ -600,7 +615,7 @@ ALTER TABLE `cars`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -618,7 +633,7 @@ ALTER TABLE `inventories`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`
@@ -636,7 +651,7 @@ ALTER TABLE `oauth_personal_access_clients`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -648,7 +663,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `product_descriptions`
 --
 ALTER TABLE `product_descriptions`
-  MODIFY `category_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `category_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
