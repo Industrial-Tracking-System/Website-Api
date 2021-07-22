@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2021 at 08:38 PM
+-- Generation Time: Jul 22, 2021 at 06:59 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -41,11 +41,11 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`id`, `available`, `factory_id`, `created_at`, `updated_at`, `type`) VALUES
-(6, 0, 'fact', NULL, '2021-07-21 16:35:13', NULL),
-(7, 0, 'fact', NULL, '2021-07-21 16:35:54', NULL),
-(8, 0, 'fact', NULL, '2021-07-18 14:07:26', NULL),
-(9, 1, 'fact', NULL, '2021-07-15 11:21:32', NULL),
-(10, 1, 'fact', NULL, '2021-07-15 11:22:24', NULL);
+(6, 0, 'fact', NULL, '2021-07-22 14:53:41', NULL),
+(7, 1, 'fact', NULL, '2021-07-21 16:35:54', NULL),
+(8, 1, 'fact', NULL, '2021-07-18 14:07:26', NULL),
+(9, 1, 'fact', NULL, '2021-07-22 14:42:01', NULL),
+(10, 1, 'fact', NULL, '2021-07-22 14:49:01', NULL);
 
 -- --------------------------------------------------------
 
@@ -73,8 +73,11 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `company_name`, `credit_limit`, `phone`, `email`, `updated_at`, `created_at`, `password`, `api_token`, `latitude`, `longitude`) VALUES
-(10, '00', 'sayda', 5000, '01005748984', 'mohamed', '2021-07-21 16:04:57', '2021-05-08 20:44:42', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', 'IuKd9sgdKgRhRRliAvlPI0OFAC9Q0r6PC1GeOsaTFrVZQLD2U2tnrFzbltHU', 30.027323444436554, 31.23303272698302),
-(11, 'mohamed', 'asdasd', 7000, '01005747984', 'nn@aa.com', NULL, '', '123', NULL, 30.035346763276976, 31.235914764474863);
+(10, 'Moahmed Abdelfattah', 'M Company ', 5000, '01005748984', 'Mohamed Abdelfattah@gmail.com', '2021-07-21 16:04:57', '2021-05-08 20:44:42', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', 'IuKd9sgdKgRhRRliAvlPI0OFAC9Q0r6PC1GeOsaTFrVZQLD2U2tnrFzbltHU', 30.027323444436554, 31.23303272698302),
+(11, 'Mohamed Mousa', 'El Roda production', 7000, '01005747984', 'Mohamed Mousa@gamil.com', NULL, '', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', NULL, 30.023279511599934, 31.226025320473088),
+(16, 'Mohamed.Ashrf', 'Giza store', 5000, '01005748984', 'Mohamed.Ashrf@gmail.com', '2021-07-22 16:41:28', '2021-07-22 16:28:52', '$2y$10$gY5HMZD6BBQWwVhTAxVPWu6pHfMlW5zyngwxIHnYgY2tVq7LhVycG', 'YuOJ51eYoTdZjfauBQ0nCI3yoXpVKiJng3xbh9bu5ilxxbIUVtZJ4FCjAVPV', 29.940027923187014, 31.195281816675234),
+(17, 'Mohamed.Taher', 'Mokatm store', 5000, '01005748984', 'Mohamed.Taher@gmail.com', '2021-07-22 16:30:11', '2021-07-22 16:30:11', '$2y$10$4ISwLCl4nEaAXIRN7RgQ8.U9AeVkQ1XWwqXQwoNFYWOjB81Y3O9O2', NULL, 30.008846385030655, 31.316301747362616),
+(18, 'Mahmoud.Ashraf', 'Bolaq store', 5000, '01005748984', 'Mahmoud.Ashraf@gmail.com', '2021-07-22 16:31:12', '2021-07-22 16:31:12', '$2y$10$W/RCbps.uCqUURo4mSYTsu2119bns2R68zq1byNr/V7mIXr1kGxZK', NULL, 30.038482136949714, 31.189522735810804);
 
 -- --------------------------------------------------------
 
@@ -103,11 +106,12 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `name`, `is_manager`, `email`, `password`, `api_token`, `phone`, `available`, `job_tittle`, `supervisor_id`, `factory_id`, `created_at`, `updated_at`) VALUES
-(3, 'moh', 0, 'moh1@factory', '$2y$10$XGrJ775qahfoLwKGbrXAZedXU0RzmXQBu6.fr2en8awHE5zMW5WJ.', '4YjfPKqzceKKUq9CIJvH0Wimf6cozs3VXIO0Ry7ZaQpIYlBF0EniPJwDXwrq', '01005748984', 0, 'spo', NULL, 'fact', '2021-01-30 13:31:52', '2021-07-21 16:35:13'),
-(4, 'zz', 1, 'zz2@factory', '$2y$10$vZCUhD12L/uSo.MZla8aG.MKVgt0tIKxApWhkZ2LJ3BzG44T7o9MO', '7YhADZ59kkYPcRN5jHrCaLOesFxU1fceCaGG6u0Jrl0dnTiYQ7zwqXBf7AfK', NULL, 1, 'aas', NULL, 'fact', '2021-01-30 13:32:54', '2021-07-21 14:39:39'),
-(5, 'mojhamed', 0, 'mojhamed3@factory', '$2y$10$PDWrWYOee6yAxhU.jaE.A.iGZQhH2dJBXoagMv8Y1kZOP3kotMTIi', NULL, NULL, 0, 'supervioser', NULL, 'fact', '2021-02-05 13:47:19', '2021-07-21 16:35:54'),
-(6, 'ahmed', 0, 'ahmed4@factory', '$2y$10$26JVMIdLzK6VboGFqjT6auqHhKm16LUJcjjEg1WgmC3ahlJ1qzKSi', NULL, '01005748984', 0, 'sop', NULL, 'fact', '2021-02-06 09:42:03', '2021-07-18 14:07:26'),
-(9, 'sdf', 0, 'sdf5@factory', '$2y$10$bfxX.1jMFEw1xCavwY4ihupMfkkLAM6X7VnFN7APSf3wfm3EwvH5y', NULL, NULL, 1, 'sdfsdf', NULL, 'fact', '2021-07-12 20:12:13', '2021-07-15 11:21:05');
+(3, 'Mahmoud Rageb', 0, 'Rageb@factory', '$2y$10$XGrJ775qahfoLwKGbrXAZedXU0RzmXQBu6.fr2en8awHE5zMW5WJ.', '4YjfPKqzceKKUq9CIJvH0Wimf6cozs3VXIO0Ry7ZaQpIYlBF0EniPJwDXwrq', '01005748984', 0, 'inventory supervisoer', NULL, 'fact', '2021-01-30 13:31:52', '2021-07-22 14:53:41'),
+(4, 'Abdelfattah Mohmaed ', 1, 'MO@factory', '$2y$10$vZCUhD12L/uSo.MZla8aG.MKVgt0tIKxApWhkZ2LJ3BzG44T7o9MO', '7YhADZ59kkYPcRN5jHrCaLOesFxU1fceCaGG6u0Jrl0dnTiYQ7zwqXBf7AfK', NULL, 1, 'Manger', NULL, 'fact', '2021-01-30 13:32:54', '2021-07-21 14:39:39'),
+(5, 'Bakr Mohamed ', 0, 'Bakr@factory', '$2y$10$PDWrWYOee6yAxhU.jaE.A.iGZQhH2dJBXoagMv8Y1kZOP3kotMTIi', 'zUgoJ6TeGfSYJUVb9gygmLbW2UYtRDmLNhBOGAAfEEejMIlylOGNLkquzvbS', NULL, 1, ' Inventory supervioser', NULL, 'fact', '2021-02-05 13:47:19', '2021-07-22 14:40:58'),
+(6, 'Mahmoud Saeed ', 0, 'msm7@factory', '$2y$10$26JVMIdLzK6VboGFqjT6auqHhKm16LUJcjjEg1WgmC3ahlJ1qzKSi', NULL, '01005748984', 1, 'driver', NULL, 'fact', '2021-02-06 09:42:03', '2021-07-18 14:07:26'),
+(9, 'Mohamed Mohsen', 0, 'Mohsen@factory', '$2y$10$bfxX.1jMFEw1xCavwY4ihupMfkkLAM6X7VnFN7APSf3wfm3EwvH5y', NULL, NULL, 1, 'driver', NULL, 'fact', '2021-07-12 20:12:13', '2021-07-22 14:42:01'),
+(10, 'Mohamed Shrief', 0, 'Shrief@factory', '123', NULL, '01005748984', 1, 'Inventory supervisor', NULL, 'fact', NULL, '2021-07-22 14:49:00');
 
 -- --------------------------------------------------------
 
@@ -152,8 +156,11 @@ CREATE TABLE `inventories` (
 --
 
 INSERT INTO `inventories` (`id`, `capaicty`, `location`, `employee_id`, `factory_id`, `created_at`, `updated_at`, `latitude`, `longitude`) VALUES
-(1, 500, 'sayda', 3, 'fact', NULL, NULL, 30.029123739785703, 31.237168780811302),
-(2, 600, 'saad zagloul', 6, 'fact', NULL, NULL, 30.036518845133443, 31.240557020277983);
+(1, 500, 'Sayad inventory ', 3, 'fact', NULL, NULL, 30.029123739785703, 31.237168780811302),
+(2, 600, 'Saad Zagloul', 6, 'fact', NULL, NULL, 30.036518845133443, 31.240557020277983),
+(6, 500, 'Dokki', 5, 'Fact', NULL, NULL, 30.037542189613614, 31.205186572052902),
+(7, 500, 'Giza', 9, 'Fact', NULL, NULL, 30.015463427294378, 31.209161167262597),
+(8, 500, 'Mokatm', 10, 'fact', NULL, NULL, 30.012845707559546, 31.29881061576493);
 
 -- --------------------------------------------------------
 
@@ -330,7 +337,10 @@ INSERT INTO `orders` (`id`, `date`, `total_cost`, `stauts`, `customer_id`, `empl
 (70, '2021-05-11', 650, 'prepreing', 10, 5, 1, '2021-07-18 12:27:09', '2021-07-18 12:27:09', 7),
 (71, '2021-05-11', 650, 'prepreing', 10, 6, 1, '2021-07-18 14:07:26', '2021-07-18 14:07:26', 8),
 (72, '2021-05-11', 650, 'prepreing', 11, 3, 2, '2021-07-21 16:35:14', '2021-07-21 16:35:14', 6),
-(73, '2021-05-11', 650, 'prepreing', 10, 5, 1, '2021-07-21 16:35:54', '2021-07-21 16:35:54', 7);
+(73, '2021-05-11', 650, 'prepreing', 10, 5, 1, '2021-07-21 16:35:54', '2021-07-21 16:35:54', 7),
+(74, '2021-05-11', 650, 'prepreing', 16, 9, 1, '2021-07-22 14:42:01', '2021-07-22 14:42:01', 9),
+(75, '2021-05-11', 650, 'prepreing', 17, 10, 2, '2021-07-22 14:49:01', '2021-07-22 14:49:01', 10),
+(76, '2021-05-11', 650, 'prepreing', 17, 3, 8, '2021-07-22 14:53:41', '2021-07-22 14:53:41', 6);
 
 -- --------------------------------------------------------
 
@@ -368,7 +378,13 @@ INSERT INTO `order_items` (`quantity`, `order_id`, `category_id`, `created_at`, 
 (1, 72, 1, '2021-07-21 16:35:14', '2021-07-21 16:35:14'),
 (10, 72, 2, '2021-07-21 16:35:15', '2021-07-21 16:35:15'),
 (1, 73, 1, '2021-07-21 16:35:55', '2021-07-21 16:35:55'),
-(10, 73, 2, '2021-07-21 16:35:55', '2021-07-21 16:35:55');
+(10, 73, 2, '2021-07-21 16:35:55', '2021-07-21 16:35:55'),
+(1, 74, 1, '2021-07-22 14:42:02', '2021-07-22 14:42:02'),
+(10, 74, 2, '2021-07-22 14:42:02', '2021-07-22 14:42:02'),
+(1, 75, 1, '2021-07-22 14:49:01', '2021-07-22 14:49:01'),
+(10, 75, 2, '2021-07-22 14:49:01', '2021-07-22 14:49:01'),
+(1, 76, 1, '2021-07-22 14:53:41', '2021-07-22 14:53:41'),
+(10, 76, 2, '2021-07-22 14:53:41', '2021-07-22 14:53:41');
 
 -- --------------------------------------------------------
 
@@ -391,11 +407,17 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`rfid`, `description_id`, `inventory_id`, `factory_id`, `created_at`, `updated_at`) VALUES
 (21, 2, 1, 'fact', '2021-07-16 14:17:25', '2021-07-16 14:17:25'),
-(22, 1, 1, 'fact', '2021-07-16 14:17:25', '2021-07-16 14:17:25'),
+(22, 1, 8, 'fact', '2021-07-16 14:17:25', '2021-07-16 14:17:25'),
 (23, 2, 2, 'fact', '2021-07-16 14:17:25', '2021-07-16 14:17:25'),
 (24, 1, 2, 'fact', '2021-07-16 14:17:25', '2021-07-16 14:17:25'),
-(25, 2, 2, 'fact', '2021-07-16 14:17:25', '2021-07-16 14:17:25'),
-(26, 1, 1, 'fact', '2021-07-16 14:17:25', '2021-07-16 14:17:25');
+(25, 2, 7, 'fact', '2021-07-16 14:17:25', '2021-07-16 14:17:25'),
+(26, 1, 1, 'fact', '2021-07-16 14:17:25', '2021-07-16 14:17:25'),
+(30, 2, 6, 'fact', '2021-07-22 14:52:19', '2021-07-22 14:52:19'),
+(32, 1, 6, 'fact', '2021-07-22 14:52:19', '2021-07-22 14:52:19'),
+(36, 1, 2, 'fact', '2021-07-22 14:52:21', '2021-07-22 14:52:21'),
+(37, 2, 7, 'fact', '2021-07-22 14:52:21', '2021-07-22 14:52:21'),
+(41, 2, 8, 'fact', '2021-07-22 14:52:22', '2021-07-22 14:52:22'),
+(43, 2, 1, 'fact', '2021-07-22 14:52:22', '2021-07-22 14:52:22');
 
 -- --------------------------------------------------------
 
@@ -456,7 +478,15 @@ INSERT INTO `tracking_products` (`order_id`, `rfid`, `created_at`, `updated_at`)
 (72, 25, '2021-07-21 16:35:14', '2021-07-21 16:35:14'),
 (73, 22, '2021-07-21 16:35:54', '2021-07-21 16:35:54'),
 (73, 26, '2021-07-21 16:35:55', '2021-07-21 16:35:55'),
-(73, 21, '2021-07-21 16:35:55', '2021-07-21 16:35:55');
+(73, 21, '2021-07-21 16:35:55', '2021-07-21 16:35:55'),
+(74, 22, '2021-07-22 14:42:01', '2021-07-22 14:42:01'),
+(74, 26, '2021-07-22 14:42:01', '2021-07-22 14:42:01'),
+(74, 21, '2021-07-22 14:42:02', '2021-07-22 14:42:02'),
+(75, 24, '2021-07-22 14:49:01', '2021-07-22 14:49:01'),
+(75, 23, '2021-07-22 14:49:01', '2021-07-22 14:49:01'),
+(75, 25, '2021-07-22 14:49:01', '2021-07-22 14:49:01'),
+(76, 22, '2021-07-22 14:53:41', '2021-07-22 14:53:41'),
+(76, 41, '2021-07-22 14:53:41', '2021-07-22 14:53:41');
 
 -- --------------------------------------------------------
 
@@ -615,19 +645,19 @@ ALTER TABLE `cars`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `inventories`
 --
 ALTER TABLE `inventories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -651,13 +681,13 @@ ALTER TABLE `oauth_personal_access_clients`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `rfid` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `rfid` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `product_descriptions`

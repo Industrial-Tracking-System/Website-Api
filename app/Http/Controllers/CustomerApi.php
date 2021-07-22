@@ -31,10 +31,12 @@ class CustomerApi extends Controller
             ]);
      
         $cutomer=new Customer();
-         $cutomer->name="00";
+        $name=explode('@',$request['email']);
+         $cutomer->name=$name[0];
         $cutomer->email=$request['email'];
         $cutomer->phone="01005748984";
-            $cutomer->adress="asdasd";
+        $cutomer->longitude=$request['longitude'];
+        $cutomer->latitude=$request['latitude'];
         $cutomer->credit_limit =5000;
         $cutomer->api_token = NULL;
        $cutomer->password=Hash::make($request['password']);
@@ -65,8 +67,8 @@ class CustomerApi extends Controller
       }
         else{
                 return response()->json([
-        'message' => 'worong data ',
-]);        
+                                'message' => 'worong data ',
+                    ]);        
   
         }
      
@@ -80,6 +82,7 @@ class CustomerApi extends Controller
         $orders=$cutomer->orders;
         return response()->json($orders);
     }
+    
       public function logout(Request $request){
 
         $affected = DB::table('customers')
@@ -87,4 +90,5 @@ class CustomerApi extends Controller
               ->update(['api_token' => NULL]);
     
 }
+    
 }

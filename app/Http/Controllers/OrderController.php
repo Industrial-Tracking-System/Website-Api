@@ -119,7 +119,7 @@ public function show_order($id){
         $pro = $requst->only('category_id','qantinty','size','customer_id');
         
         $inv=$this->selcet_best_inventory($pro['customer_id']);
-        
+    
         $employee=$this->select_employee();
         $car=$this->select_car();
         $flag=false;
@@ -182,7 +182,7 @@ public function show_order($id){
         }
  
     
-           return response()->json(1);   
+           return response()->json($inv);   
            
 }
     
