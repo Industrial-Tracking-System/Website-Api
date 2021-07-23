@@ -116,9 +116,9 @@ public function show_order($id){
     public function make_order(Request $requst ){
 
         
-        $pro = $requst->only('category_id','qantinty','size','customer_id');
+       # $pro = $requst->only('category_id','qantinty','size','customer_id');
         
-        $inv=$this->selcet_best_inventory($pro['customer_id']);
+        $inv=$this->selcet_best_inventory($requst['customer_id']);
     
         $employee=$this->select_employee();
         $car=$this->select_car();
@@ -136,22 +136,22 @@ public function show_order($id){
         $selctions=array();
         $qan=array();
         $costs=array();
-       for($i=0;$i<$pro['size'];$i++){
-         $qan[$i]= $pro['qantinty'][$i];  
-       $selctions[$i]= DB::table('products')->select(DB::raw('*'))->where('description_id', '=', $pro['category_id'][$i])->where('products.inventory_id','=',$inv['id'])->get();
-        $costs[$i]=DB::table('product_descriptions')->where('category_id', $pro['category_id'][$i])->first();
+       for($i=0;$i<$requst['numOfProducs'];$i++){
+         $qan[$i]= $requst['quantites'][$i];  
+       $selctions[$i]= DB::table('products')->select(DB::raw('*'))->where('description_id', '=', $requst['productsIds'][$i])->where('products.inventory_id','=',$inv['id'])->get();
+        $costs[$i]=DB::table('product_descriptions')->where('category_id', $requst['productsIds'][$i])->first();
         }   
         
        
         $order=new order();
         $order->date="2021-05-11";
-         for($i=0;$i<$pro['size'];$i++){
+         for($i=0;$i<$requst['numOfProducs'];$i++){
         $order->total_cost+=$costs[$i]->cost*$qan[$i];
         }
       
         $order->employee_id=$employee->id;
         $order->car_id=$car->id;
-        $order->customer_id=$pro['customer_id'];
+        $order->customer_id=$requst['customer_id'];
         $order->stauts='prepreing';
         $order->inventory_id=$inv_id;
         $order->save();
@@ -172,12 +172,12 @@ public function show_order($id){
         
         
         
-        for($i=0;$i<$pro['size'];$i++){
+        for($i=0;$i<$requst['numOfProducs'];$i++){
         $items=new order_item();
 
         $items->quantity=$qan[$i];
         $items->order_id=$order->id;    
-        $items->category_id=$pro['category_id'][$i];
+        $items->category_id=$requst['productsIds'][$i];
         $items->save();
         }
  
