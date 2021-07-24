@@ -56,5 +56,30 @@ class EmployeeApi extends Controller
               ->update(['api_token' => NULL]);
     
 }
+    public function crrunt_orders($id){
+          $employee=Employee::find($id);
+        $crrunt_orders=array();
+        $i=0;
+        foreach( $employee->orders as $order  ){
+            
+            if($order->stauts=="on way"){
+            $crrunt_orders[$i]=$order;    
+            }
+            $i++;
+            if(sizeof($crrunt_orders)==0){
+      return response()->json([
+                                'message' => 'Ther is no Crrunt Orders',
+                    ]);        
+              }
+           return response()->json($crrunt_orders);
+        }
+         
+    }
+     public function show_employee_orders($id){
+          $employee=Employee::find($id);
+        
+           return response()->json($employee->orders);
+        
+    }
         
 }

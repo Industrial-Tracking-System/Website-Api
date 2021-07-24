@@ -152,7 +152,7 @@ public function show_order($id){
         $order->employee_id=$employee->id;
         $order->car_id=$car->id;
         $order->customer_id=$requst['customer_id'];
-        $order->stauts='prepreing';
+        $order->stauts='on way';
         $order->inventory_id=$inv_id;
         $order->save();
         for($i=0;$i<sizeof($selctions);$i++){
@@ -182,15 +182,18 @@ public function show_order($id){
         }
  
     
-           return response()->json($inv);   
+           return response()->json($order);   
            
 }
     
     
     public function order_arrived(Request $requst){
         $order_id=$requst->only('order_id');
+        $order=new order();
         $order=order::find($order_id);
         
+        
+         DB::table('orders')->where('id', '=',$order_id) ->update(['stauts' => 'arriverd']);
         DB::table('employees') ->where('id', $order[0]->employee_id) ->update(['available' => 1]);
         DB::table('cars') ->where('id',$order[0]->car_id) ->update(['available' => 1]);
         
@@ -203,7 +206,7 @@ public function show_order($id){
         # DB::table('products')->where('order_id', '=',$order_id)->delete();     
 
            
-                   return response()->json($products);      
+                   return response()->json($order);      
 
         
     }

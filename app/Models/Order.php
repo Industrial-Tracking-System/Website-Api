@@ -17,7 +17,7 @@ class Order extends Model
     
         public function employee()
     {
-        return $this->belongsTo('App\Employee');
+        return $this->belongsTo(Employee::class);
     }
           public function inventory()
     {

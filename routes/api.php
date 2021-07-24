@@ -13,6 +13,9 @@ use App\Http\Controllers\ProductDescriptionController;
 Route::post('/login',[EmployeeApi::class,'login']);
 Route::get('/employees',[EmployeeApi::class,'show_employees']);
 Route::get('/employees/{id?}',[EmployeeApi::class,'show_employee']);
+Route::get('/employees/{id?}/crrunt_orders',[EmployeeApi::class,'crrunt_orders']);
+Route::get('/employees/{id?}/orders',[EmployeeApi::class,'show_employee_orders']);
+
 Route::get('/set_avilable',[EmployeeApi::class,'set_avilable']);
 Route::post('/logout',[EmployeeApi::class,'logout']);
 
