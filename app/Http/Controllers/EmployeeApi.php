@@ -58,21 +58,25 @@ class EmployeeApi extends Controller
 }
     public function crrunt_orders($id){
           $employee=Employee::find($id);
-        $crrunt_orders=array();
+        $crrunt_orders;
+        $flag=false;
         $i=0;
         foreach( $employee->orders as $order  ){
             
             if($order->stauts=='on way'){
-            $crrunt_orders[$i]=$order;    
+            $crrunt_orders=$order;
+                $flag=true;
             }
             $i++;
   
         }
-                  if(sizeof($crrunt_orders)==0){
+        
+                  if($flag==false){
       return response()->json([
                                 'message' => 'Ther is no Crrunt Orders',
                     ]);        
               }
+              
            return response()->json($crrunt_orders);
          
     }
