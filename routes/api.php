@@ -39,7 +39,7 @@ Route::get('/cars/{id?}',[carApi::class,'show_car']);
 
 Route::post('/register',[CustomerApi::class,'register']);
 Route::post('/customerlogin',[CustomerApi::class,'customerlogin']);
-Route::get('/{id?}/orders',[CustomerApi::class,'customer_orders']);
+Route::get('/customers/{id?}/orders',[CustomerApi::class,'customer_orders']);
 Route::post('/customer_logout',[CustomerApi::class,'logout']);
 Route::get('/customers',[CustomerApi::class,'show_customers']);
 Route::get('/customers/{id?}',[CustomerApi::class,'show_customer']);
