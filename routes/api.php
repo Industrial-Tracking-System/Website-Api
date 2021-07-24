@@ -67,5 +67,6 @@ Route::get('/orders/{id?}',[OrderController::class,'show_order']);
 Route::get('/add_products',[ProductController::class,'add_products']);
 //
 
+Route::post('/rfid_tag',[ProductController::class,'rfid_tag']);
 
 

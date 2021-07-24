@@ -25,6 +25,8 @@ class ProductController extends Controller
         }
         return response()->json(1);
     }
-
+public function rfid_tag (Request $req){
+    return response()->json($req);
+}
 
 }

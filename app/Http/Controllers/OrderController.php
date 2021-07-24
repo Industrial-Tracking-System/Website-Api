@@ -203,10 +203,9 @@ public function show_order($id){
         for($i=0;$i<sizeof($products);$i++){
              DB::table('products')->where('rfid','=',$products[$i]->rfid)->delete();
         }
-        # DB::table('products')->where('order_id', '=',$order_id)->delete();     
 
            
-                   return response()->json($order);      
+                   return response()->json();      
 
         
     }
