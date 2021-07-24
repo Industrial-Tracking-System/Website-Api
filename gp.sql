@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 24, 2021 at 08:04 AM
+-- Generation Time: Jul 24, 2021 at 10:57 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -54,8 +54,8 @@ CREATE TABLE `cars` (
 --
 
 INSERT INTO `cars` (`id`, `available`, `factory_id`, `created_at`, `updated_at`, `type`) VALUES
-(6, 0, 'fact', NULL, '2021-07-22 14:53:41', NULL),
-(7, 1, 'fact', NULL, '2021-07-21 16:35:54', NULL),
+(6, 0, 'fact', NULL, '2021-07-24 05:51:02', NULL),
+(7, 0, 'fact', NULL, '2021-07-24 06:26:39', NULL),
 (8, 1, 'fact', NULL, '2021-07-18 14:07:26', NULL),
 (9, 1, 'fact', NULL, '2021-07-22 14:42:01', NULL),
 (10, 1, 'fact', NULL, '2021-07-22 14:49:01', NULL);
@@ -87,11 +87,11 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`id`, `name`, `company_name`, `credit_limit`, `phone`, `email`, `updated_at`, `created_at`, `password`, `api_token`, `latitude`, `longitude`, `imageUrl`) VALUES
-(10, 'Moahmed Abdelfattah', 'M Company ', 5000, '01005748984', 'Mohamed Abdelfattah@gmail.com', '2021-07-21 16:04:57', '2021-05-08 20:44:42', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', 'IuKd9sgdKgRhRRliAvlPI0OFAC9Q0r6PC1GeOsaTFrVZQLD2U2tnrFzbltHU', 30.027323444436554, 31.23303272698302, NULL),
+(10, 'Moahmed Abdelfattah', 'M Company ', 5000, '01005748984', 'Mohamed Abdelfattah@gmail.com', '2021-07-21 16:04:57', '2021-05-08 20:44:42', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', 'IuKd9sgdKgRhRRliAvlPI0OFAC9Q0r6PC1GeOsaTFrVZQLD2U2tnrFzbltHU', 30.027323444436554, 31.23303272698302, 'https://cdn.discordapp.com/attachments/866650827380883496/868238031709155338/IMG_20210530_124449.jpg'),
 (11, 'Mohamed Mousa', 'El Roda production', 7000, '01005747984', 'Mohamed.Mousa@gamil.com', '2021-07-23 21:01:12', '', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', 'J6ZBxcEQETVm11QJNb992FdVmVaxeHzyHrylabZ8gRHfUkooBPW5Umg4grap', 30.023279511599934, 31.226025320473088, 'https://cdn.discordapp.com/attachments/866650827380883496/868235621913739264/193505117_2885386878342054_5253953160473682336_n.jpg'),
-(16, 'Mohamed.Ashrf', 'Giza store', 5000, '01005748984', 'Mohamed.Ashrf@gmail.com', '2021-07-23 19:49:44', '2021-07-22 16:28:52', '$2y$10$gY5HMZD6BBQWwVhTAxVPWu6pHfMlW5zyngwxIHnYgY2tVq7LhVycG', '7qRht3VUBHZxOc0UNymEO713pkrNOogseWdey8UjJCUuJp90r92Bevm98eE8', 29.940027923187014, 31.195281816675234, NULL),
-(17, 'Mohamed.Taher', 'Mokatm store', 5000, '01005748984', 'Mohamed.Taher@gmail.com', '2021-07-22 16:30:11', '2021-07-22 16:30:11', '$2y$10$4ISwLCl4nEaAXIRN7RgQ8.U9AeVkQ1XWwqXQwoNFYWOjB81Y3O9O2', NULL, 30.008846385030655, 31.316301747362616, NULL),
-(18, 'Mahmoud.Ashraf', 'Bolaq store', 5000, '01005748984', 'Mahmoud.Ashraf@gmail.com', '2021-07-22 16:31:12', '2021-07-22 16:31:12', '$2y$10$W/RCbps.uCqUURo4mSYTsu2119bns2R68zq1byNr/V7mIXr1kGxZK', NULL, 30.038482136949714, 31.189522735810804, NULL);
+(16, 'Mohamed.Ashrf', 'Giza store', 5000, '01005748984', 'Mohamed.Ashraf@gmail.com', '2021-07-23 19:49:44', '2021-07-22 16:28:52', '$2y$10$gY5HMZD6BBQWwVhTAxVPWu6pHfMlW5zyngwxIHnYgY2tVq7LhVycG', '7qRht3VUBHZxOc0UNymEO713pkrNOogseWdey8UjJCUuJp90r92Bevm98eE8', 29.940027923187014, 31.195281816675234, 'https://cdn.discordapp.com/attachments/651464167383105563/868411015501594674/193818416_1850600891776695_8282787404938586732_n.jpg'),
+(17, 'Mohamed.Taher', 'Mokatm store', 5000, '01005748984', 'Mohamed.Taher@gmail.com', '2021-07-22 16:30:11', '2021-07-22 16:30:11', '$2y$10$4ISwLCl4nEaAXIRN7RgQ8.U9AeVkQ1XWwqXQwoNFYWOjB81Y3O9O2', NULL, 30.008846385030655, 31.316301747362616, ''),
+(18, 'Mahmoud.Ashraf', 'Bolaq store', 5000, '01005748984', 'Mahmoud.Ashraf@gmail.com', '2021-07-22 16:31:12', '2021-07-22 16:31:12', '$2y$10$W/RCbps.uCqUURo4mSYTsu2119bns2R68zq1byNr/V7mIXr1kGxZK', NULL, 30.038482136949714, 31.189522735810804, 'https://cdn.discordapp.com/attachments/866650827380883496/868411631082819594/194698331_2865338303689049_6065587074545362039_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -121,12 +121,13 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`id`, `name`, `is_manager`, `email`, `password`, `api_token`, `phone`, `available`, `job_tittle`, `supervisor_id`, `factory_id`, `created_at`, `updated_at`, `imageUrl`) VALUES
-(3, 'Mahmoud Rageb', 0, 'Rageb@factory', '$2y$10$XGrJ775qahfoLwKGbrXAZedXU0RzmXQBu6.fr2en8awHE5zMW5WJ.', '4YjfPKqzceKKUq9CIJvH0Wimf6cozs3VXIO0Ry7ZaQpIYlBF0EniPJwDXwrq', '01005748984', 0, 'inventory supervisoer', NULL, 'fact', '2021-01-30 13:31:52', '2021-07-22 14:53:41', NULL),
+(3, 'Mahmoud Rageb', 0, 'Rageb@factory', '$2y$10$XGrJ775qahfoLwKGbrXAZedXU0RzmXQBu6.fr2en8awHE5zMW5WJ.', '4YjfPKqzceKKUq9CIJvH0Wimf6cozs3VXIO0Ry7ZaQpIYlBF0EniPJwDXwrq', '01005748984', 0, 'inventory supervisoer', NULL, 'fact', '2021-01-30 13:31:52', '2021-07-24 05:51:02', 'https://cdn.discordapp.com/attachments/573096138417111050/868381166078664744/192802087_963784947704059_7572111759993306419_n.jpg'),
 (4, 'Abdelfattah Mohmaed ', 1, 'MO@factory', '$2y$10$vZCUhD12L/uSo.MZla8aG.MKVgt0tIKxApWhkZ2LJ3BzG44T7o9MO', '1Vu2PuxZrHHW5JWeeiIIDFr3PE1xcD7Yg6pwJiNQzuO9cNLILkmcWV8gAenX', NULL, 1, 'Manger', NULL, 'fact', '2021-01-30 13:32:54', '2021-07-23 19:24:28', 'https://cdn.discordapp.com/attachments/866650827380883496/868238031709155338/IMG_20210530_124449.jpg'),
-(5, 'Bakr Mohamed ', 0, 'Bakr@factory', '$2y$10$PDWrWYOee6yAxhU.jaE.A.iGZQhH2dJBXoagMv8Y1kZOP3kotMTIi', 'zUgoJ6TeGfSYJUVb9gygmLbW2UYtRDmLNhBOGAAfEEejMIlylOGNLkquzvbS', NULL, 1, ' Inventory supervioser', NULL, 'fact', '2021-02-05 13:47:19', '2021-07-22 14:40:58', NULL),
-(6, 'Mahmoud Saeed ', 0, 'msm7@factory', '$2y$10$26JVMIdLzK6VboGFqjT6auqHhKm16LUJcjjEg1WgmC3ahlJ1qzKSi', NULL, '01005748984', 1, 'driver', NULL, 'fact', '2021-02-06 09:42:03', '2021-07-18 14:07:26', NULL),
-(9, 'Mohamed Mohsen', 0, 'Mohsen@factory', '$2y$10$bfxX.1jMFEw1xCavwY4ihupMfkkLAM6X7VnFN7APSf3wfm3EwvH5y', NULL, NULL, 1, 'driver', NULL, 'fact', '2021-07-12 20:12:13', '2021-07-22 14:42:01', NULL),
-(10, 'Mohamed Shrief', 0, 'Shrief@factory', '123', NULL, '01005748984', 1, 'Inventory supervisor', NULL, 'fact', NULL, '2021-07-22 14:49:00', NULL);
+(5, 'Bakr Mohamed ', 0, 'Bakr@factory', '$2y$10$PDWrWYOee6yAxhU.jaE.A.iGZQhH2dJBXoagMv8Y1kZOP3kotMTIi', 'zUgoJ6TeGfSYJUVb9gygmLbW2UYtRDmLNhBOGAAfEEejMIlylOGNLkquzvbS', NULL, 0, ' Inventory supervioser', NULL, 'fact', '2021-02-05 13:47:19', '2021-07-24 06:26:39', 'https://cdn.discordapp.com/attachments/573096138417111050/868376661257760839/194360359_3536812999752878_3566670612381427582_n.jpg'),
+(6, 'Mahmoud Saeed ', 0, 'msm7@factory', '$2y$10$26JVMIdLzK6VboGFqjT6auqHhKm16LUJcjjEg1WgmC3ahlJ1qzKSi', NULL, '01005748984', 1, 'driver', NULL, 'fact', '2021-02-06 09:42:03', '2021-07-18 14:07:26', 'https://cdn.discordapp.com/attachments/573096138417111050/868381167580221460/192862737_4010909725670349_941710975393216537_n.jpg'),
+(9, 'Mohamed Mohsen', 0, 'Mohsen@factory', '$2y$10$bfxX.1jMFEw1xCavwY4ihupMfkkLAM6X7VnFN7APSf3wfm3EwvH5y', NULL, NULL, 1, 'driver', NULL, 'fact', '2021-07-12 20:12:13', '2021-07-22 14:42:01', 'https://cdn.discordapp.com/attachments/573096138417111050/868381165839605800/203691572_4101596543249819_3405651239738428567_n.jpg'),
+(10, 'Mohamed Shrief', 0, 'Shrief@factory', '$2y$10$bfxX.1jMFEw1xCavwY4ihupMfkkLAM6X7VnFN7APSf3wfm3EwvH5y', NULL, '01005748984', 1, 'Inventory supervisor', NULL, 'fact', NULL, '2021-07-22 14:49:00', 'https://cdn.discordapp.com/attachments/651464167383105563/868410588731170816/193235169_5508539369218391_2312668250781113558_n.png'),
+(11, 'Mohamed Sameh', 0, 'Mohamed.Sameh@gmail.com', '$2y$10$bfxX.1jMFEw1xCavwY4ihupMfkkLAM6X7VnFN7APSf3wfm3EwvH5y', NULL, '01005748984', 1, 'driver', NULL, 'fact', NULL, NULL, 'https://cdn.discordapp.com/attachments/866650827380883496/868412253307809812/74381705_1362613893900976_9102007337790472192_n.jpg');
 
 -- --------------------------------------------------------
 
@@ -345,18 +346,18 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `date`, `total_cost`, `stauts`, `customer_id`, `employee_id`, `inventory_id`, `created_at`, `updated_at`, `car_id`) VALUES
-(65, '2021-05-11', 1350, 'prepreing', 11, 3, 2, '2021-07-14 16:51:49', '2021-07-14 16:51:49', 6),
-(66, '2021-05-11', 1350, 'prepreing', 10, 5, 1, '2021-07-14 16:52:03', '2021-07-14 16:52:03', 7),
-(67, '2021-05-11', 1350, 'prepreing', 11, 5, 2, '2021-07-14 17:10:20', '2021-07-14 17:10:20', 6),
-(68, '2021-05-11', 1350, 'prepreing', 10, 3, 1, '2021-07-14 17:15:00', '2021-07-14 17:15:00', 6),
-(69, '2021-05-11', 650, 'prepreing', 10, 5, 2, '2021-07-15 11:45:00', '2021-07-15 11:45:00', 6),
-(70, '2021-05-11', 650, 'prepreing', 10, 5, 1, '2021-07-18 12:27:09', '2021-07-18 12:27:09', 7),
-(71, '2021-05-11', 650, 'prepreing', 10, 6, 1, '2021-07-18 14:07:26', '2021-07-18 14:07:26', 8),
-(72, '2021-05-11', 650, 'prepreing', 11, 3, 2, '2021-07-21 16:35:14', '2021-07-21 16:35:14', 6),
-(73, '2021-05-11', 650, 'prepreing', 10, 5, 1, '2021-07-21 16:35:54', '2021-07-21 16:35:54', 7),
-(74, '2021-05-11', 650, 'prepreing', 16, 9, 1, '2021-07-22 14:42:01', '2021-07-22 14:42:01', 9),
-(75, '2021-05-11', 650, 'prepreing', 17, 10, 2, '2021-07-22 14:49:01', '2021-07-22 14:49:01', 10),
-(76, '2021-05-11', 650, 'prepreing', 17, 3, 8, '2021-07-22 14:53:41', '2021-07-22 14:53:41', 6);
+(65, '2021-05-11', 1350, 'arrived', 11, 3, 2, '2021-07-14 16:51:49', '2021-07-14 16:51:49', 6),
+(66, '2021-05-11', 1350, 'arrived', 10, 5, 1, '2021-07-14 16:52:03', '2021-07-14 16:52:03', 7),
+(67, '2021-05-11', 1350, 'arrived', 11, 5, 2, '2021-07-14 17:10:20', '2021-07-14 17:10:20', 6),
+(68, '2021-05-11', 1350, 'arrived', 10, 3, 1, '2021-07-14 17:15:00', '2021-07-14 17:15:00', 6),
+(69, '2021-05-11', 650, 'arrived', 10, 5, 2, '2021-07-15 11:45:00', '2021-07-15 11:45:00', 6),
+(70, '2021-05-11', 650, 'arrived', 10, 5, 1, '2021-07-18 12:27:09', '2021-07-18 12:27:09', 7),
+(71, '2021-05-11', 650, 'arrived', 10, 6, 1, '2021-07-18 14:07:26', '2021-07-18 14:07:26', 8),
+(72, '2021-05-11', 650, 'arrived', 11, 3, 2, '2021-07-21 16:35:14', '2021-07-21 16:35:14', 6),
+(73, '2021-05-11', 650, 'on way', 10, 5, 1, '2021-07-21 16:35:54', '2021-07-21 16:35:54', 7),
+(74, '2021-05-11', 650, 'arrived', 16, 9, 1, '2021-07-22 14:42:01', '2021-07-22 14:42:01', 9),
+(75, '2021-05-11', 650, 'arrived', 17, 10, 2, '2021-07-22 14:49:01', '2021-07-22 14:49:01', 10),
+(76, '2021-05-11', 650, 'arrived', 17, 3, 8, '2021-07-22 14:53:41', '2021-07-22 14:53:41', 6);
 
 -- --------------------------------------------------------
 
@@ -695,7 +696,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `inventories`
