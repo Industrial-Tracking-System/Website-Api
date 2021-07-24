@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2021 at 06:59 PM
+-- Generation Time: Jul 24, 2021 at 08:04 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.8
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `gp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `arduino`
+--
+
+CREATE TABLE `arduino` (
+  `id` int(6) UNSIGNED NOT NULL,
+  `sensor1` varchar(30) DEFAULT NULL,
+  `sensor2` varchar(30) DEFAULT NULL,
+  `sensor3` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -65,19 +78,20 @@ CREATE TABLE `customers` (
   `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `api_token` varchar(80) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `latitude` double NOT NULL,
-  `longitude` double NOT NULL
+  `longitude` double NOT NULL,
+  `imageUrl` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `name`, `company_name`, `credit_limit`, `phone`, `email`, `updated_at`, `created_at`, `password`, `api_token`, `latitude`, `longitude`) VALUES
-(10, 'Moahmed Abdelfattah', 'M Company ', 5000, '01005748984', 'Mohamed Abdelfattah@gmail.com', '2021-07-21 16:04:57', '2021-05-08 20:44:42', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', 'IuKd9sgdKgRhRRliAvlPI0OFAC9Q0r6PC1GeOsaTFrVZQLD2U2tnrFzbltHU', 30.027323444436554, 31.23303272698302),
-(11, 'Mohamed Mousa', 'El Roda production', 7000, '01005747984', 'Mohamed Mousa@gamil.com', NULL, '', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', NULL, 30.023279511599934, 31.226025320473088),
-(16, 'Mohamed.Ashrf', 'Giza store', 5000, '01005748984', 'Mohamed.Ashrf@gmail.com', '2021-07-22 16:41:28', '2021-07-22 16:28:52', '$2y$10$gY5HMZD6BBQWwVhTAxVPWu6pHfMlW5zyngwxIHnYgY2tVq7LhVycG', 'YuOJ51eYoTdZjfauBQ0nCI3yoXpVKiJng3xbh9bu5ilxxbIUVtZJ4FCjAVPV', 29.940027923187014, 31.195281816675234),
-(17, 'Mohamed.Taher', 'Mokatm store', 5000, '01005748984', 'Mohamed.Taher@gmail.com', '2021-07-22 16:30:11', '2021-07-22 16:30:11', '$2y$10$4ISwLCl4nEaAXIRN7RgQ8.U9AeVkQ1XWwqXQwoNFYWOjB81Y3O9O2', NULL, 30.008846385030655, 31.316301747362616),
-(18, 'Mahmoud.Ashraf', 'Bolaq store', 5000, '01005748984', 'Mahmoud.Ashraf@gmail.com', '2021-07-22 16:31:12', '2021-07-22 16:31:12', '$2y$10$W/RCbps.uCqUURo4mSYTsu2119bns2R68zq1byNr/V7mIXr1kGxZK', NULL, 30.038482136949714, 31.189522735810804);
+INSERT INTO `customers` (`id`, `name`, `company_name`, `credit_limit`, `phone`, `email`, `updated_at`, `created_at`, `password`, `api_token`, `latitude`, `longitude`, `imageUrl`) VALUES
+(10, 'Moahmed Abdelfattah', 'M Company ', 5000, '01005748984', 'Mohamed Abdelfattah@gmail.com', '2021-07-21 16:04:57', '2021-05-08 20:44:42', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', 'IuKd9sgdKgRhRRliAvlPI0OFAC9Q0r6PC1GeOsaTFrVZQLD2U2tnrFzbltHU', 30.027323444436554, 31.23303272698302, NULL),
+(11, 'Mohamed Mousa', 'El Roda production', 7000, '01005747984', 'Mohamed.Mousa@gamil.com', '2021-07-23 21:01:12', '', '$2y$10$2gzIUisBl/0oqQ.GxAr0KeXV/sDPCwcqLsB/lsRs9pWulMcXFs1uK', 'J6ZBxcEQETVm11QJNb992FdVmVaxeHzyHrylabZ8gRHfUkooBPW5Umg4grap', 30.023279511599934, 31.226025320473088, 'https://cdn.discordapp.com/attachments/866650827380883496/868235621913739264/193505117_2885386878342054_5253953160473682336_n.jpg'),
+(16, 'Mohamed.Ashrf', 'Giza store', 5000, '01005748984', 'Mohamed.Ashrf@gmail.com', '2021-07-23 19:49:44', '2021-07-22 16:28:52', '$2y$10$gY5HMZD6BBQWwVhTAxVPWu6pHfMlW5zyngwxIHnYgY2tVq7LhVycG', '7qRht3VUBHZxOc0UNymEO713pkrNOogseWdey8UjJCUuJp90r92Bevm98eE8', 29.940027923187014, 31.195281816675234, NULL),
+(17, 'Mohamed.Taher', 'Mokatm store', 5000, '01005748984', 'Mohamed.Taher@gmail.com', '2021-07-22 16:30:11', '2021-07-22 16:30:11', '$2y$10$4ISwLCl4nEaAXIRN7RgQ8.U9AeVkQ1XWwqXQwoNFYWOjB81Y3O9O2', NULL, 30.008846385030655, 31.316301747362616, NULL),
+(18, 'Mahmoud.Ashraf', 'Bolaq store', 5000, '01005748984', 'Mahmoud.Ashraf@gmail.com', '2021-07-22 16:31:12', '2021-07-22 16:31:12', '$2y$10$W/RCbps.uCqUURo4mSYTsu2119bns2R68zq1byNr/V7mIXr1kGxZK', NULL, 30.038482136949714, 31.189522735810804, NULL);
 
 -- --------------------------------------------------------
 
@@ -98,20 +112,21 @@ CREATE TABLE `employees` (
   `supervisor_id` bigint(20) UNSIGNED DEFAULT NULL,
   `factory_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `imageUrl` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`id`, `name`, `is_manager`, `email`, `password`, `api_token`, `phone`, `available`, `job_tittle`, `supervisor_id`, `factory_id`, `created_at`, `updated_at`) VALUES
-(3, 'Mahmoud Rageb', 0, 'Rageb@factory', '$2y$10$XGrJ775qahfoLwKGbrXAZedXU0RzmXQBu6.fr2en8awHE5zMW5WJ.', '4YjfPKqzceKKUq9CIJvH0Wimf6cozs3VXIO0Ry7ZaQpIYlBF0EniPJwDXwrq', '01005748984', 0, 'inventory supervisoer', NULL, 'fact', '2021-01-30 13:31:52', '2021-07-22 14:53:41'),
-(4, 'Abdelfattah Mohmaed ', 1, 'MO@factory', '$2y$10$vZCUhD12L/uSo.MZla8aG.MKVgt0tIKxApWhkZ2LJ3BzG44T7o9MO', '7YhADZ59kkYPcRN5jHrCaLOesFxU1fceCaGG6u0Jrl0dnTiYQ7zwqXBf7AfK', NULL, 1, 'Manger', NULL, 'fact', '2021-01-30 13:32:54', '2021-07-21 14:39:39'),
-(5, 'Bakr Mohamed ', 0, 'Bakr@factory', '$2y$10$PDWrWYOee6yAxhU.jaE.A.iGZQhH2dJBXoagMv8Y1kZOP3kotMTIi', 'zUgoJ6TeGfSYJUVb9gygmLbW2UYtRDmLNhBOGAAfEEejMIlylOGNLkquzvbS', NULL, 1, ' Inventory supervioser', NULL, 'fact', '2021-02-05 13:47:19', '2021-07-22 14:40:58'),
-(6, 'Mahmoud Saeed ', 0, 'msm7@factory', '$2y$10$26JVMIdLzK6VboGFqjT6auqHhKm16LUJcjjEg1WgmC3ahlJ1qzKSi', NULL, '01005748984', 1, 'driver', NULL, 'fact', '2021-02-06 09:42:03', '2021-07-18 14:07:26'),
-(9, 'Mohamed Mohsen', 0, 'Mohsen@factory', '$2y$10$bfxX.1jMFEw1xCavwY4ihupMfkkLAM6X7VnFN7APSf3wfm3EwvH5y', NULL, NULL, 1, 'driver', NULL, 'fact', '2021-07-12 20:12:13', '2021-07-22 14:42:01'),
-(10, 'Mohamed Shrief', 0, 'Shrief@factory', '123', NULL, '01005748984', 1, 'Inventory supervisor', NULL, 'fact', NULL, '2021-07-22 14:49:00');
+INSERT INTO `employees` (`id`, `name`, `is_manager`, `email`, `password`, `api_token`, `phone`, `available`, `job_tittle`, `supervisor_id`, `factory_id`, `created_at`, `updated_at`, `imageUrl`) VALUES
+(3, 'Mahmoud Rageb', 0, 'Rageb@factory', '$2y$10$XGrJ775qahfoLwKGbrXAZedXU0RzmXQBu6.fr2en8awHE5zMW5WJ.', '4YjfPKqzceKKUq9CIJvH0Wimf6cozs3VXIO0Ry7ZaQpIYlBF0EniPJwDXwrq', '01005748984', 0, 'inventory supervisoer', NULL, 'fact', '2021-01-30 13:31:52', '2021-07-22 14:53:41', NULL),
+(4, 'Abdelfattah Mohmaed ', 1, 'MO@factory', '$2y$10$vZCUhD12L/uSo.MZla8aG.MKVgt0tIKxApWhkZ2LJ3BzG44T7o9MO', '1Vu2PuxZrHHW5JWeeiIIDFr3PE1xcD7Yg6pwJiNQzuO9cNLILkmcWV8gAenX', NULL, 1, 'Manger', NULL, 'fact', '2021-01-30 13:32:54', '2021-07-23 19:24:28', 'https://cdn.discordapp.com/attachments/866650827380883496/868238031709155338/IMG_20210530_124449.jpg'),
+(5, 'Bakr Mohamed ', 0, 'Bakr@factory', '$2y$10$PDWrWYOee6yAxhU.jaE.A.iGZQhH2dJBXoagMv8Y1kZOP3kotMTIi', 'zUgoJ6TeGfSYJUVb9gygmLbW2UYtRDmLNhBOGAAfEEejMIlylOGNLkquzvbS', NULL, 1, ' Inventory supervioser', NULL, 'fact', '2021-02-05 13:47:19', '2021-07-22 14:40:58', NULL),
+(6, 'Mahmoud Saeed ', 0, 'msm7@factory', '$2y$10$26JVMIdLzK6VboGFqjT6auqHhKm16LUJcjjEg1WgmC3ahlJ1qzKSi', NULL, '01005748984', 1, 'driver', NULL, 'fact', '2021-02-06 09:42:03', '2021-07-18 14:07:26', NULL),
+(9, 'Mohamed Mohsen', 0, 'Mohsen@factory', '$2y$10$bfxX.1jMFEw1xCavwY4ihupMfkkLAM6X7VnFN7APSf3wfm3EwvH5y', NULL, NULL, 1, 'driver', NULL, 'fact', '2021-07-12 20:12:13', '2021-07-22 14:42:01', NULL),
+(10, 'Mohamed Shrief', 0, 'Shrief@factory', '123', NULL, '01005748984', 1, 'Inventory supervisor', NULL, 'fact', NULL, '2021-07-22 14:49:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -209,7 +224,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (28, '2021_07_17_124603_token_to_employee', 13),
 (29, '2021_07_18_143153_add_token', 14),
 (30, '2021_07_19_130157_add_quantity_and_url_to_product__des', 15),
-(31, '2021_07_21_182107_add_long_and_lat_to_tables', 16);
+(31, '2021_07_21_182107_add_long_and_lat_to_tables', 16),
+(32, '2021_07_23_205552_add_image_to_custmers', 17);
 
 -- --------------------------------------------------------
 
@@ -440,14 +456,24 @@ CREATE TABLE `product_descriptions` (
 --
 
 INSERT INTO `product_descriptions` (`category_id`, `category_name`, `cost`, `created_at`, `updated_at`, `image_path`, `quantity`) VALUES
-(1, 'Food', 50, '2021-07-19 11:59:17', NULL, 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 0),
-(2, 'drink', 60, '2021-07-19 11:59:17', NULL, 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 0),
-(3, 'cockacola', 120, '2021-07-19 11:58:30', '2021-07-19 11:58:30', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15),
-(4, 'oil', 120, '2021-07-19 11:58:50', '2021-07-19 11:58:50', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15),
-(5, 'chpis', 120, '2021-07-19 11:59:04', '2021-07-19 11:59:04', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15),
-(6, 'choclate', 120, '2021-07-19 11:59:17', '2021-07-19 11:59:17', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15),
-(7, 'sprite', 45, '2021-07-19 12:36:50', '2021-07-19 12:36:50', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15),
-(8, '3nab', 54, '2021-07-19 12:37:11', '2021-07-19 12:37:11', 'https://cdn.pixabay.com/photo/2016/10/02/22/17/red-t-shirt-1710578_1280.jpg', 15);
+(1, 'Pepsi', 50, '2021-07-19 11:59:17', NULL, 'https://cdn.discordapp.com/attachments/866650827380883496/868225996757807124/-Bb5IdJK_400x400.jpg', 0),
+(2, 'Water', 60, '2021-07-19 11:59:17', NULL, 'https://cdn.discordapp.com/attachments/866650827380883496/868225689613111387/54.jpg', 0),
+(3, 'cockacola', 120, '2021-07-19 11:58:30', '2021-07-19 11:58:30', 'https://cdn.discordapp.com/attachments/866650827380883496/868225248900841472/index.png', 15),
+(4, 'oil', 120, '2021-07-19 11:58:50', '2021-07-19 11:58:50', 'https://cdn.discordapp.com/attachments/866650827380883496/868225016246976522/media-handler.php.jpg', 15),
+(5, 'chpis', 120, '2021-07-19 11:59:04', '2021-07-19 11:59:04', 'https://cdn.discordapp.com/attachments/866650827380883496/868224141889790022/83WpLwaL.jpg', 15),
+(6, 'choclate', 120, '2021-07-19 11:59:17', '2021-07-19 11:59:17', 'https://cdn.discordapp.com/attachments/866650827380883496/868224706736697384/chr-equipment-cadbury-logo-news.jpg', 15);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sensors`
+--
+
+CREATE TABLE `sensors` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `value` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -508,6 +534,12 @@ CREATE TABLE `users` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `arduino`
+--
+ALTER TABLE `arduino`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `cars`
@@ -618,6 +650,12 @@ ALTER TABLE `product_descriptions`
   ADD PRIMARY KEY (`category_id`);
 
 --
+-- Indexes for table `sensors`
+--
+ALTER TABLE `sensors`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tracking_products`
 --
 ALTER TABLE `tracking_products`
@@ -634,6 +672,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `arduino`
+--
+ALTER TABLE `arduino`
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cars`
@@ -663,7 +707,7 @@ ALTER TABLE `inventories`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`
@@ -694,6 +738,12 @@ ALTER TABLE `products`
 --
 ALTER TABLE `product_descriptions`
   MODIFY `category_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `sensors`
+--
+ALTER TABLE `sensors`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
