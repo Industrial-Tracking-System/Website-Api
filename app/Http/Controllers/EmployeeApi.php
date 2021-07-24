@@ -66,13 +66,14 @@ class EmployeeApi extends Controller
             $crrunt_orders[$i]=$order;    
             }
             $i++;
-            if(sizeof($crrunt_orders)==0){
+  
+        }
+                  if(sizeof($crrunt_orders)==0){
       return response()->json([
                                 'message' => 'Ther is no Crrunt Orders',
                     ]);        
               }
            return response()->json($crrunt_orders);
-        }
          
     }
      public function show_employee_orders($id){
