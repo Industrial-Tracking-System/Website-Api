@@ -62,7 +62,7 @@ class EmployeeApi extends Controller
         $i=0;
         foreach( $employee->orders as $order  ){
             
-            if($order->stauts=="on way"){
+            if($order->stauts!='on way'){
             $crrunt_orders[$i]=$order;    
             }
             $i++;
