@@ -158,6 +158,9 @@ public function show_order($id){
         for($i=0;$i<sizeof($selctions);$i++){
 
         foreach($selctions[$i] as $selec){
+            $product=new product();
+            $product->rfid_counter=selec->rfid_counter+1;
+            $product->save();
             $tracking_obj=new Tracking_product();
          $tracking_obj->order_id=$order->id;
         $tracking_obj->rfid=$selec->rfid;

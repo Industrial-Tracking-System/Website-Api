@@ -25,8 +25,30 @@ class ProductController extends Controller
         }
         return response()->json(1);
     }
-public function rfid_tag (Request $req){
-    return response()->json($req);
+public function rfid_tag ($outputdata){
+    $rfid_tag=(int)$outputdata;
+    $product=new product();
+    $affected = DB::table('Products')->where('rfid', '=',$rfid_tag)->get();
+    if(sizeof($affected)!=0){
+      DB::table('Products')->where('rfid', '=',$rfid_tag)->update(['rfid_counter' =>$affected[0]->rfid_counter+=1]);
+    
+    }
+    
+    
+    
+else{
+        $item=new product();
+    $item->rfid=$rfid_tag;
+        $item->factory_id="fact";
+         $item->rfid_counter=0;
+               $item->description_id=rand(1,2);
+            $item->inventory_id=1;
+            $item->save();
+        }
 }
+    
 
 }
+
+
+
