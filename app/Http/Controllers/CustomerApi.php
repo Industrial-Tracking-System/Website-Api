@@ -39,7 +39,7 @@ class CustomerApi extends Controller
         $cutomer->longitude= 31.210550883327265;
         $cutomer->latitude=  30.03046585388168;
         $cutomer->credit_limit =5000;
-        $cutomer->api_token = NULL;
+        $cutomer->api_token = Str::random(60);
        $cutomer->password=Hash::make($request['password']);
         $cutomer->company_name=$request['company_name'];
         $cutomer->save();
