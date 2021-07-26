@@ -36,13 +36,17 @@ class CustomerApi extends Controller
          $cutomer->name=$request['name'];
         $cutomer->email=$request['email'];
         $cutomer->phone=$request['phone'];
-        $cutomer->longitude= 31.210550883327265;
-        $cutomer->latitude=  30.03046585388168;
+        $cutomer->longitude=31.210550883327265;
+        $cutomer->latitude= 30.03046585388168;
         $cutomer->credit_limit =5000;
         $cutomer->imageUrl="https://cdn.discordapp.com/attachments/866650827380883496/869345452552777868/client.png";
         $cutomer->api_token = Str::random(60);
        $cutomer->password=Hash::make($request['password']);
         $cutomer->company_name=$request['company_name'];
+        if($request['latitude']!=null &&$request['longitude']!=null){
+            $cutomer->latitude=$request['latitude'];
+            $cutomer->longitude=$request['longitude'];
+        }
         $cutomer->save();
         return response()->json($cutomer);
     }
