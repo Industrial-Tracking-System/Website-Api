@@ -53,6 +53,8 @@ Route::post('/add_products_descrtpions',[ProductDescriptionController::class,'ad
 ///order apies 
 Route::post('/make_order',[OrderController::class,'make_order']);
 
+Route::post('/driver_confirm',[OrderController::class,'driver_confirm']);
+
 Route::post('/order_arrived',[OrderController::class,'order_arrived']);
 /*
 Route::middleware([customer_loggedin::class])->group(function () {

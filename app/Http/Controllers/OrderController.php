@@ -49,13 +49,13 @@ public function show_order($id){
          $size=inventory::count();
          $distance=array();
         $earthRadius = 6371000;
-
+         $latTo = deg2rad($customer->latitude);
+        $lonTo = deg2rad($customer->longitude);
          for($i=0;$i<$size;$i++){
-
+             
         $latFrom = deg2rad($inv[$i]->latitude);
         $lonFrom = deg2rad($inv[$i]->longitude);
-        $latTo = deg2rad($customer->latitude);
-        $lonTo = deg2rad($customer->longitude);
+    
         $latDelta = $latTo - $latFrom;
         $lonDelta = $lonTo - $lonFrom;
         $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
@@ -148,6 +148,9 @@ public function show_order($id){
          for($i=0;$i<$requst['numOfProducs'];$i++){
         $order->total_cost+=$costs[$i]->cost*$qan[$i];
         }
+        for($i=0;$i<sizeof($qan);$i++){
+            $order->quantity+=$qan[$i];
+        }
       
         $order->employee_id=$employee->id;
         $order->car_id=$car->id;
@@ -158,9 +161,9 @@ public function show_order($id){
         for($i=0;$i<sizeof($selctions);$i++){
 
         foreach($selctions[$i] as $selec){
-            $product=new product();
-            $product->rfid_counter=selec->rfid_counter+1;
-            $product->save();
+            #$product=new product();
+           # $product->rfid_counter=selec->rfid_counter+1;
+            #$product->save();
             $tracking_obj=new Tracking_product();
          $tracking_obj->order_id=$order->id;
         $tracking_obj->rfid=$selec->rfid;
@@ -210,6 +213,12 @@ public function show_order($id){
            
                    return response()->json();      
 
+        
+    }
+    public function driver_confirm( Request $requst){
+        $order=order::find($requst['order_id']);
+        $order->stauts="Wating Customer Confrimation";
+        $order->save();
         
     }
     
