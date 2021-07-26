@@ -50,9 +50,10 @@ class EmployeeApi extends Controller
         
     }
         public function logout(Request $request){
-
+            $id=$request->only('id');
+            $id=(int)$id['id'];
         $affected = DB::table('employees')
-              ->where('id', '=',$request['id'])
+              ->where('id', '=',$id)
               ->update(['api_token' => NULL]);
     
 }

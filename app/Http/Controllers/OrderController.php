@@ -195,29 +195,30 @@ public function show_order($id){
     
     public function order_arrived(Request $requst){
         $order_id=$requst->only('order_id');
+        $order_id=(int)$order_id['order_id'];
         $order=new order();
-        $order=order::find($order_id);
-        
-        
+        $order=order::find($order_id)->get();
+        $order->stauts="arrived";
+        DB::table('orders') ->where('id',$order_id) ->update(['stauts' => 'arrived']);
          DB::table('orders')->where('id', '=',$order_id) ->update(['stauts' => 'arriverd']);
         DB::table('employees') ->where('id', $order[0]->employee_id) ->update(['available' => 1]);
         DB::table('cars') ->where('id',$order[0]->car_id) ->update(['available' => 1]);
         
         $products=DB::table('Tracking_products')->select(DB::raw('*'))->where('order_id', '=', $order_id)->get();
        DB::table('tracking_products')->where('order_id', '=',$order_id)->delete();
-
+/*
         for($i=0;$i<sizeof($products);$i++){
              DB::table('products')->where('rfid','=',$products[$i]->rfid)->delete();
         }
-
+*/
            
-                   return response()->json();      
+            return response()->json("done");      
 
         
     }
     public function driver_confirm( Request $requst){
         $order=order::find($requst['order_id']);
-        $order->stauts="Wating Customer Confrimation";
+        $order->stauts="Wating Confrimation";
         $order->save();
         
     }

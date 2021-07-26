@@ -84,11 +84,11 @@ class CustomerApi extends Controller
     }
     
       public function logout(Request $request){
-
-        $affected = DB::table('customers')
-              ->where('id', '=',$request['id'])
-              ->update(['api_token' => NULL]);
-    
+        
+        $id=$request->only('id');
+        $id=(int)$id['id'];
+         $affe = DB::table('customers')->where('id', '=',$id)->update(['api_token' => NULL]);
+          
 }
     
 }
