@@ -43,6 +43,7 @@ Route::get('/customers/{id?}/orders',[CustomerApi::class,'customer_orders']);
 Route::post('/customer_logout',[CustomerApi::class,'logout']);
 Route::get('/customers',[CustomerApi::class,'show_customers']);
 Route::get('/customers/{id?}',[CustomerApi::class,'show_customer']);
+Route::post('/set_custmoer_loction',[CustomerApi::class,'set_custmoer_loction']);
 
 ////
 Route::get('/products',[OrderController::class,'show_products']);

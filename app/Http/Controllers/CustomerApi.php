@@ -31,14 +31,13 @@ class CustomerApi extends Controller
         'name'=>'required|string',
         'phone'=>'required'
             ]);
-     
         $cutomer=new Customer();
         $name=explode('@',$request['email']);
          $cutomer->name=$request['name'];
         $cutomer->email=$request['email'];
         $cutomer->phone=$request['phone'];
-        $cutomer->longitude= 30.03046585388168;
-        $cutomer->latitude=31.210550883327265;
+        $cutomer->longitude= 31.210550883327265;
+        $cutomer->latitude=  30.03046585388168;
         $cutomer->credit_limit =5000;
         $cutomer->api_token = NULL;
        $cutomer->password=Hash::make($request['password']);
@@ -92,5 +91,12 @@ class CustomerApi extends Controller
          $affe = DB::table('customers')->where('id', '=',$id)->update(['api_token' => NULL]);
           
 }
+    public function set_custmoer_loction(Request $request){
+        $cutomer=customer::find($request['customer_id']);
+        $cutomer->latitude=$request['latitude'];
+        $cutomer->longitude=$request['longitude'];
+        $cutomer->save();
+        
+    }
     
 }
