@@ -28,15 +28,17 @@ class CustomerApi extends Controller
             'email' => 'required|max:191|email',
               'company_name'=>'required|string',
         'password' => 'required',
+        'name'=>'required|string',
+        'phone'=>'required'
             ]);
      
         $cutomer=new Customer();
         $name=explode('@',$request['email']);
-         $cutomer->name=$name[0];
+         $cutomer->name=$request['name'];
         $cutomer->email=$request['email'];
-        $cutomer->phone="01005748984";
-        $cutomer->longitude=$request['longitude'];
-        $cutomer->latitude=$request['latitude'];
+        $cutomer->phone=$request['phone'];
+        $cutomer->longitude= 30.03046585388168;
+        $cutomer->latitude=31.210550883327265;
         $cutomer->credit_limit =5000;
         $cutomer->api_token = NULL;
        $cutomer->password=Hash::make($request['password']);
