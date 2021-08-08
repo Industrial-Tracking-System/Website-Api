@@ -87,6 +87,5 @@ https://user-images.githubusercontent.com/36118944/128044394-e0122cbb-ffe0-4597-
 * Mohamed Abd el-fattah - [LinkedIn](https://www.linkedin.com/in/mohamed-abdelfattah-28a283189/) - abdelfattahmohamed968@gmail.com
 * Mahmoud Ashraf - [LinkedIn](https://www.linkedin.com/in/mahmoud-ashraf-51b3321a2/) - mahmoudashraf043@gmail.com
 
-Project Link: [Industrial Tracking System](https://github.com/Industrial-Tracking-System/BackTracking-App)
+Project Link: [Industrial Tracking System](https://github.com/Industrial-Tracking-System)
 
-Related Project Link that implement the Back-end Part: [Website Api](https://github.com/Industrial-Tracking-System/Website-Api)
